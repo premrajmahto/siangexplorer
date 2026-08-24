@@ -67,7 +67,6 @@
             <i class="fa-solid fa-earth-asia text-teal-400 text-base"></i>
             <span>Specialized in North East India • Pan India & International Tours</span>
         </div>
-        <div class="text-amber-400 font-bold text-sm">thise is test text</div>
 
         @foreach($heroSlides as $index => $slide)
 
