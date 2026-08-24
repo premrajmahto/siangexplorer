@@ -31,8 +31,20 @@ class CustomerAuthController extends Controller
                 ->with('success', 'Welcome back to SiangExplorer, ' . Auth::user()->name . '!');
         }
 
+        // Fallback: Check if credentials belong to an Admin account
+        if (Auth::guard('admin')->attempt($credentials, $request->boolean('remember'))) {
+            $admin = Auth::guard('admin')->user();
+            if (!$admin->is_active) {
+                Auth::guard('admin')->logout();
+                return back()->withErrors(['email' => 'Your admin account is disabled.']);
+            }
+            $request->session()->regenerate();
+            return redirect()->intended(route('admin.dashboard'))
+                ->with('success', 'Welcome back to Admin Portal, ' . $admin->name . '!');
+        }
+
         return back()->withErrors([
-            'email' => 'The provided credentials do not match our customer records.',
+            'email' => 'The provided credentials do not match our records.',
         ])->onlyInput('email');
     }
 

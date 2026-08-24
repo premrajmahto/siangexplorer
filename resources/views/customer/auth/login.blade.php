@@ -42,7 +42,11 @@
 
         <div class="pt-4 border-t border-slate-100 text-center text-xs text-slate-500 space-y-2">
             <p>Don't have an account yet? <a href="{{ route('register') }}" class="font-extrabold text-brand-600 hover:underline">Register Now</a></p>
-            <p class="text-[11px] text-slate-400">Demo Customer: <code class="bg-slate-100 px-1 py-0.5 rounded">customer@siangexplorer.com</code> / <code class="bg-slate-100 px-1 py-0.5 rounded">password123</code></p>
+            <p>Are you an Administrator? <a href="{{ route('admin.login') }}" class="font-extrabold text-teal-600 hover:underline">Admin Login Portal</a></p>
+            <div class="text-[11px] text-slate-400 pt-1 space-y-0.5 border-t border-slate-100">
+                <p>Demo Customer: <code class="bg-slate-100 px-1 py-0.5 rounded font-mono">customer@siangexplorer.com</code> / <code class="bg-slate-100 px-1 py-0.5 rounded font-mono">password123</code></p>
+                <p>Demo Admin: <code class="bg-slate-100 px-1 py-0.5 rounded font-mono">admin@siangexplorer.com</code> / <code class="bg-slate-100 px-1 py-0.5 rounded font-mono">password123</code></p>
+            </div>
         </div>
     </div>
 </div>
