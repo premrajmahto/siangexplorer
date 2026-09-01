@@ -8,6 +8,9 @@
     <title>@yield('title', \App\Models\Setting::get('site_name', 'SiangExplorer | Premium Tour & Travel Agency'))</title>
     <meta name="description" content="@yield('meta_description', \App\Models\Setting::get('seo_default_description', 'Luxury tour packages and travel experiences.'))">
 
+    <!-- Favicon / Brand Logo -->
+    <link rel="icon" type="image/png" href="{{ asset(\App\Models\Setting::get('site_logo', '/images/logo.png')) }}">
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

@@ -21,11 +21,19 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <!-- Col 1: Brand & Contact -->
             <div class="space-y-4">
-                <a href="{{ url('/') }}" class="flex items-center space-x-3">
-                    <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-brand-600 to-teal-400 flex items-center justify-center text-white font-black text-lg shadow-md">
-                        S
-                    </div>
-                    <span class="font-extrabold text-white text-lg tracking-tight">Siang<span class="text-brand-400">Explorer</span></span>
+                <a href="{{ url('/') }}" class="inline-block group">
+                    @if($logo = \App\Models\Setting::get('site_logo', '/images/logo.png'))
+                        <div class="bg-white px-3.5 py-2 rounded-2xl shadow-md border border-slate-700/50 inline-block group-hover:shadow-lg group-hover:scale-105 transition-all">
+                            <img src="{{ asset($logo) }}" alt="{{ \App\Models\Setting::get('site_name', 'SiangExplorer') }}" class="h-9 w-auto max-w-[190px] object-contain">
+                        </div>
+                    @else
+                        <div class="flex items-center space-x-3">
+                            <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-brand-600 to-teal-400 flex items-center justify-center text-white font-black text-lg shadow-md">
+                                S
+                            </div>
+                            <span class="font-extrabold text-white text-lg tracking-tight">Siang<span class="text-brand-400">Explorer</span></span>
+                        </div>
+                    @endif
                 </a>
                 <p class="text-slate-400 leading-relaxed font-normal">
                     Specialized in North East India. We also do Pan India and International Tours as well.

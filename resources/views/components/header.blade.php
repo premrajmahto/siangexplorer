@@ -28,14 +28,19 @@
     <!-- Main Navigation Bar -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         <!-- Brand Logo -->
-        <a href="{{ url('/') }}" class="flex items-center space-x-3 group">
-            <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-brand-600 to-teal-400 flex items-center justify-center text-white font-black text-xl shadow-lg shadow-brand-500/20 group-hover:scale-105 transition-transform">
-                S
-            </div>
-            <div>
-                <span class="font-extrabold text-white text-xl tracking-tight block leading-none">Siang<span class="text-brand-400">Explorer</span></span>
-            </div>
-
+        <a href="{{ url('/') }}" class="flex items-center group">
+            @if($logo = \App\Models\Setting::get('site_logo', '/images/logo.png'))
+                <div class="bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-2xl shadow-md border border-white/20 group-hover:bg-white group-hover:scale-105 transition-all flex items-center">
+                    <img src="{{ asset($logo) }}" alt="{{ \App\Models\Setting::get('site_name', 'SiangExplorer') }}" class="h-9 w-auto max-w-[180px] object-contain">
+                </div>
+            @else
+                <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-brand-600 to-teal-400 flex items-center justify-center text-white font-black text-xl shadow-lg shadow-brand-500/20 group-hover:scale-105 transition-transform">
+                    S
+                </div>
+                <div class="ml-3">
+                    <span class="font-extrabold text-white text-xl tracking-tight block leading-none">Siang<span class="text-brand-400">Explorer</span></span>
+                </div>
+            @endif
         </a>
 
         <!-- Desktop Menu Links -->

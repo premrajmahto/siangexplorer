@@ -6,9 +6,15 @@
 <div class="py-20 bg-slate-100 min-h-[70vh] flex items-center justify-center px-4">
     <div class="w-full max-w-md bg-white p-8 rounded-3xl shadow-xl border border-slate-200/80 space-y-6">
         <div class="text-center space-y-2">
-            <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-brand-600 to-teal-400 mx-auto flex items-center justify-center text-white text-xl font-black shadow-md">
-                S
-            </div>
+            @if($logo = \App\Models\Setting::get('site_logo', '/images/logo.png'))
+                <div class="bg-white p-3.5 rounded-2xl shadow-md border border-slate-200 inline-block mx-auto mb-2">
+                    <img src="{{ asset($logo) }}" alt="SiangExplorer" class="h-10 w-auto object-contain">
+                </div>
+            @else
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-brand-600 to-teal-400 mx-auto flex items-center justify-center text-white text-xl font-black shadow-md">
+                    S
+                </div>
+            @endif
             <h1 class="text-2xl font-extrabold text-slate-900 font-serif">Customer Login</h1>
             <p class="text-xs text-slate-500 font-medium">Access your trip bookings, itinerary confirmations, and profile.</p>
         </div>

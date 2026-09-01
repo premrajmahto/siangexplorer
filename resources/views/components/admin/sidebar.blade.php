@@ -17,13 +17,19 @@
         <!-- Brand Header -->
         <div class="h-16 flex items-center justify-between px-6 bg-slate-950/50 border-b border-slate-800">
             <a href="{{ route('admin.dashboard') }}" class="flex items-center space-x-3 group">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-teal-400 flex items-center justify-center text-white font-black text-xl shadow-lg shadow-brand-500/20 group-hover:scale-105 transition-transform">
-                    S
-                </div>
-                <div>
-                    <span class="font-extrabold text-white text-lg tracking-wide block leading-none">Siang<span class="text-brand-400">Explorer</span></span>
-                    <span class="text-[10px] font-semibold tracking-wider uppercase text-slate-400">Admin Console</span>
-                </div>
+                @if($logo = \App\Models\Setting::get('site_logo', '/images/logo.png'))
+                    <div class="bg-white px-3 py-1.5 rounded-xl shadow-md group-hover:scale-105 transition-transform flex items-center">
+                        <img src="{{ asset($logo) }}" alt="SiangExplorer Admin" class="h-7 w-auto max-w-[140px] object-contain">
+                    </div>
+                @else
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-teal-400 flex items-center justify-center text-white font-black text-xl shadow-lg shadow-brand-500/20 group-hover:scale-105 transition-transform">
+                        S
+                    </div>
+                    <div>
+                        <span class="font-extrabold text-white text-lg tracking-wide block leading-none">Siang<span class="text-brand-400">Explorer</span></span>
+                        <span class="text-[10px] font-semibold tracking-wider uppercase text-slate-400">Admin Console</span>
+                    </div>
+                @endif
             </a>
             <button @click="sidebarOpen = false" class="lg:hidden text-slate-400 hover:text-white">
                 <i class="fa-solid fa-xmark text-xl"></i>

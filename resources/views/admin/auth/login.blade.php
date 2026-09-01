@@ -26,11 +26,17 @@
     <div class="w-full max-w-md bg-white/95 backdrop-blur-xl p-8 rounded-3xl shadow-2xl border border-white/20">
         <!-- Logo & Branding -->
         <div class="text-center mb-8">
-            <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-brand-600 to-teal-400 mx-auto flex items-center justify-center text-white text-2xl font-black shadow-xl shadow-brand-500/30 mb-3">
-                S
-            </div>
-            <h1 class="text-2xl font-extrabold text-slate-900 tracking-tight">Siang<span class="text-brand-600">Explorer</span></h1>
-            <p class="text-xs font-semibold text-slate-500 uppercase tracking-widest mt-1">Admin Management Portal</p>
+            @if($logo = \App\Models\Setting::get('site_logo', '/images/logo.png'))
+                <div class="bg-white p-3.5 rounded-2xl shadow-xl border border-slate-200 inline-block mx-auto mb-3">
+                    <img src="{{ asset($logo) }}" alt="SiangExplorer Admin" class="h-12 w-auto object-contain">
+                </div>
+            @else
+                <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-brand-600 to-teal-400 mx-auto flex items-center justify-center text-white text-2xl font-black shadow-xl shadow-brand-500/30 mb-3">
+                    S
+                </div>
+                <h1 class="text-2xl font-extrabold text-slate-900 tracking-tight">Siang<span class="text-brand-600">Explorer</span></h1>
+            @endif
+            <p class="text-xs font-semibold text-slate-500 uppercase tracking-widest mt-2">Admin Management Portal</p>
         </div>
 
         @if(session('error'))
