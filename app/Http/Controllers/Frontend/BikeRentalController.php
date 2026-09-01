@@ -34,7 +34,7 @@ class BikeRentalController extends Controller
             'notes' => ['nullable', 'string'],
         ]);
 
-        ServiceEnquiry::create([
+        $enquiry = ServiceEnquiry::create([
             'service_type' => 'bike_rental',
             'service_id' => $bike->id,
             'customer_name' => $validated['customer_name'],
@@ -46,6 +46,27 @@ class BikeRentalController extends Controller
             'notes' => $validated['notes'] ?? null,
             'status' => 'new',
         ]);
+
+        try {
+            $adminEmail = \App\Models\Setting::get('contact_email', 'amritamaharaj93@gmail.com');
+            \Illuminate\Support\Facades\Mail::raw(
+                "New Bike Rental Request on SiangExplorer!\n\n".
+                "Bike: {$bike->model_name} ({$bike->bike_type})\n".
+                "Customer: {$enquiry->customer_name}\n".
+                "Email: {$enquiry->customer_email}\n".
+                "Phone: {$enquiry->customer_phone}\n".
+                "Start Date: {$enquiry->start_date}\n".
+                "Pickup Location: {$enquiry->pickup_location}\n".
+                "Notes: {$enquiry->notes}",
+                function ($mail) use ($adminEmail, $enquiry, $bike) {
+                    $mail->to($adminEmail)
+                         ->replyTo($enquiry->customer_email, $enquiry->customer_name)
+                         ->subject("New Bike Request: {$bike->model_name} from {$enquiry->customer_name}");
+                }
+            );
+        } catch (\Throwable $e) {
+            \Illuminate\Support\Facades\Log::error('Bike rental email error: ' . $e->getMessage());
+        }
 
         return back()->with('success', 'Motorcycle rental request for ' . $bike->model_name . ' submitted! Hub manager will contact you shortly.');
     }

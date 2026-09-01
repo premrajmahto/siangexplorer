@@ -61,7 +61,7 @@ class HotelController extends Controller
             'notes' => ['nullable', 'string'],
         ]);
 
-        ServiceEnquiry::create([
+        $enquiry = ServiceEnquiry::create([
             'service_type' => 'hotel',
             'service_id' => $hotel->id,
             'customer_name' => $validated['customer_name'],
@@ -73,6 +73,28 @@ class HotelController extends Controller
             'notes' => $validated['notes'] ?? null,
             'status' => 'new',
         ]);
+
+        try {
+            $adminEmail = \App\Models\Setting::get('contact_email', 'amritamaharaj93@gmail.com');
+            \Illuminate\Support\Facades\Mail::raw(
+                "New Hotel Booking Request on SiangExplorer!\n\n".
+                "Hotel: {$hotel->name}\n".
+                "Customer: {$enquiry->customer_name}\n".
+                "Email: {$enquiry->customer_email}\n".
+                "Phone: {$enquiry->customer_phone}\n".
+                "Check-in: {$enquiry->start_date}\n".
+                "Check-out: {$enquiry->end_date}\n".
+                "Guests: {$enquiry->num_guests}\n".
+                "Notes: {$enquiry->notes}",
+                function ($mail) use ($adminEmail, $enquiry, $hotel) {
+                    $mail->to($adminEmail)
+                         ->replyTo($enquiry->customer_email, $enquiry->customer_name)
+                         ->subject("New Hotel Request: {$hotel->name} from {$enquiry->customer_name}");
+                }
+            );
+        } catch (\Throwable $e) {
+            \Illuminate\Support\Facades\Log::error('Hotel booking email error: ' . $e->getMessage());
+        }
 
         return back()->with('success', 'Hotel reservation request for ' . $hotel->name . ' submitted! Our team will confirm your room within 2 hours.');
     }

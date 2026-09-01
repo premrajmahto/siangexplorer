@@ -34,7 +34,7 @@ class TransportationController extends Controller
             'notes' => ['nullable', 'string'],
         ]);
 
-        ServiceEnquiry::create([
+        $enquiry = ServiceEnquiry::create([
             'service_type' => 'transportation',
             'service_id' => $vehicle->id,
             'customer_name' => $validated['customer_name'],
@@ -46,6 +46,27 @@ class TransportationController extends Controller
             'notes' => $validated['notes'] ?? null,
             'status' => 'new',
         ]);
+
+        try {
+            $adminEmail = \App\Models\Setting::get('contact_email', 'amritamaharaj93@gmail.com');
+            \Illuminate\Support\Facades\Mail::raw(
+                "New Cab/Vehicle Rental Request on SiangExplorer!\n\n".
+                "Vehicle: {$vehicle->vehicle_name} ({$vehicle->vehicle_type})\n".
+                "Customer: {$enquiry->customer_name}\n".
+                "Email: {$enquiry->customer_email}\n".
+                "Phone: {$enquiry->customer_phone}\n".
+                "Start Date: {$enquiry->start_date}\n".
+                "Pickup Location: {$enquiry->pickup_location}\n".
+                "Notes: {$enquiry->notes}",
+                function ($mail) use ($adminEmail, $enquiry, $vehicle) {
+                    $mail->to($adminEmail)
+                         ->replyTo($enquiry->customer_email, $enquiry->customer_name)
+                         ->subject("New Cab Request: {$vehicle->vehicle_name} from {$enquiry->customer_name}");
+                }
+            );
+        } catch (\Throwable $e) {
+            \Illuminate\Support\Facades\Log::error('Transportation email error: ' . $e->getMessage());
+        }
 
         return back()->with('success', 'Cab & Vehicle booking request for ' . $vehicle->vehicle_name . ' submitted! Driver details will be sent via SMS/WhatsApp.');
     }
