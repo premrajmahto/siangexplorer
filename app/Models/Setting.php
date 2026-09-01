@@ -14,10 +14,15 @@ class Setting extends Model
 
     public static function get(string $key, $default = null)
     {
+        if ($default === null) {
+            if ($key === 'contact_email') $default = 'amritamaharaj93@gmail.com';
+            if ($key === 'site_logo') $default = '/images/logo.png';
+        }
+
         try {
             return Cache::remember("setting_{$key}", 3600, function () use ($key, $default) {
                 $setting = static::where('key', $key)->first();
-                return $setting ? $setting->value : $default;
+                return ($setting && !empty($setting->value)) ? $setting->value : $default;
             });
         } catch (\Throwable $e) {
             return $default;

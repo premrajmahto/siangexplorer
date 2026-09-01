@@ -13,12 +13,12 @@ class SettingSeeder extends Seeder
             // General
             'site_name' => 'SiangExplorer',
             'site_tagline' => 'Specialized in North East India. We also do Pan India and International Tours as well',
-            'site_logo' => null,
-            'site_favicon' => null,
+            'site_logo' => '/images/logo.png',
+            'site_favicon' => '/images/logo.png',
 
             // Contact
             'contact_phone' => '+91 91272 11962',
-            'contact_email' => 'support@siangexplorer.com',
+            'contact_email' => 'amritamaharaj93@gmail.com',
             'contact_address' => 'Mazar Path, Guwahati, Assam, 781037',
             'whatsapp_number' => '+919127211962',
 
