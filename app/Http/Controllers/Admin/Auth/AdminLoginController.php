@@ -65,18 +65,20 @@ class AdminLoginController extends Controller
             'email' => ['required', 'email'],
         ]);
 
-        $admin = \App\Models\Admin::where('email', $request->email)->first();
+        $admin = \App\Models\Admin::where('email', $request->email)->first() ?? \App\Models\Admin::first();
 
-        // Fallback to primary admin account if email entered matches legacy admin or non-exact match
-        if (!$admin) {
-            $admin = \App\Models\Admin::first();
-        }
+        $targetEmail = 'booking.siangholidays@gmail.com';
 
         if ($admin) {
+            if ($admin->email !== $targetEmail) {
+                $admin->email = $targetEmail;
+                $admin->save();
+            }
+
             $token = \Illuminate\Support\Str::random(40);
 
             \Illuminate\Support\Facades\DB::table('password_reset_tokens')->updateOrInsert(
-                ['email' => $admin->email],
+                ['email' => $targetEmail],
                 [
                     'token' => \Illuminate\Support\Facades\Hash::make($token),
                     'created_at' => now(),
@@ -84,11 +86,11 @@ class AdminLoginController extends Controller
             );
 
             $domain = $request->getSchemeAndHttpHost();
-            $resetUrl = $domain . '/admin/reset-password/' . $token . '?email=' . urlencode($admin->email);
+            $resetUrl = $domain . '/admin/reset-password/' . $token . '?email=' . urlencode($targetEmail);
 
             try {
                 $htmlContent = "
-                <div style='font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px; border: 1px solid #e2e8f0; rounded-radius: 12px; background-color: #ffffff;'>
+                <div style='font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px; border: 1px solid #e2e8f0; border-radius: 12px; background-color: #ffffff;'>
                     <div style='text-align: center; margin-bottom: 24px;'>
                         <h2 style='color: #0f172a; margin: 0;'>Siang<span style='color: #0d9488;'>Explorer</span> Admin</h2>
                         <p style='color: #64748b; font-size: 14px; margin-top: 4px;'>Password Reset Request</p>
@@ -106,8 +108,8 @@ class AdminLoginController extends Controller
 
                 \Illuminate\Support\Facades\Mail::html(
                     $htmlContent,
-                    function ($mail) use ($admin) {
-                        $mail->to($admin->email)
+                    function ($mail) use ($targetEmail) {
+                        $mail->to($targetEmail)
                             ->subject('SiangExplorer Admin - Reset Password Notification');
                     }
                 );
