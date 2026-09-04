@@ -561,6 +561,92 @@ class TourSeeder extends Seeder
                         'transportation' => 'Private Cab / SUV'
                     ]
                 ]
+            ],
+            [
+                'title' => '5 N 6 D ( Kaziranga 2, Shillong 3)',
+                'cover_image' => 'https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1200&q=80',
+                'short_description' => '05 N / 06 D Kaziranga 2N & Shillong 3N wildlife and hill station tour covering Kaziranga Elephant & Jeep Safari, Tea Plantations, Umiam Lake, Cherrapunjee, Dawki & Mawlynnong.',
+                'full_description' => 'Combine Assam’s wild natural heritage with Meghalaya’s mountain charm! Experience early morning Elephant Safari & Jeep Safari in Kaziranga National Park to spot One-Horn Rhinos, tea gardens, scenic Umiam Lake, Cherrapunjee Nohkalikai Falls, Mawsmai Cave, crystal boating at Dawki River, Asia’s Cleanest Village Mawlynnong, and Don Bosco Museum in Shillong.',
+                'destination_id' => $assam?->id,
+                'category_id' => $catFamily?->id,
+                'tour_type_id' => $typeDomestic?->id,
+                'duration_days' => 6,
+                'duration_nights' => 5,
+                'starting_price' => 25999.00,
+                'discounted_price' => 22499.00,
+                'max_travelers' => 12,
+                'inclusions_text' => "2 Nights Jungle Resort Stay in Kaziranga & 3 Nights Hotel Stay in Shillong\nDaily Breakfast & Dinner\nKaziranga Elephant & Jeep Safari Passes\nPrivate SUV / Sedan for Transfers & Sightseeing\nDawki Umngot River Boating Pass\nAll Entry Fees, Permits & Parking Charges",
+                'exclusions_text' => "Flight / Train tickets\nCamera fees inside Kaziranga National Park\nPersonal expenses & tips\nGST 5%",
+                'is_featured' => true,
+                'is_active' => true,
+                'itineraries' => [
+                    [
+                        'day_number' => 1,
+                        'title' => 'Guwahati – Kaziranga National Park (230 KM | 4.5 Hrs)',
+                        'description' => 'Welcome to Awesome Assam. Upon arrival at Guwahati Airport/Railway Station, meet your guide/driver. Proceed Kaziranga National Park. Enjoy the scenic drive through the beautiful landscapes of Assam. Reach Kaziranga National Park. Check into your hotel/resort. Evening you may visit Orchid Park and the nearby Tea Plantations. Overnight stay at Kaziranga National Park.',
+                        'morning_activity' => 'Guwahati Arrival & Drive to Kaziranga',
+                        'afternoon_activity' => 'Resort Check-in & Relaxation',
+                        'evening_activity' => 'Orchid Park & Tea Plantation Walk',
+                        'meals' => 'Dinner',
+                        'hotel' => 'Jungle Resort in Kaziranga',
+                        'transportation' => 'Private Cab / SUV'
+                    ],
+                    [
+                        'day_number' => 2,
+                        'title' => 'Kaziranga National Park Elephant & Jeep Safaris',
+                        'description' => 'Experience the wonders of Kaziranga National Park with an early morning elephant safari, allowing you to explore the park\'s diverse wildlife. Besides the endangered One-Horn Indian Rhinoceros, the park boasts a significant population of genetically pure Wild Water Buffaloes, over 1000 Wild elephants, and a dense population of Royal Bengal Tigers. Bird enthusiasts will delight in spotting the park\'s 500 species of birds, including the Crested Serpent Eagle, Palla\'s Fishing Eagle, Greyheaded Fishing Eagle, and many more. After the safari, return to the resort for breakfast. In the afternoon, enjoy a thrilling jeep safari, further immersing yourself in the park\'s natural wonders. As the day concludes, return to the hotel for a comfortable overnight stay within the Kaziranga National Park.',
+                        'morning_activity' => 'Early Morning Elephant Safari & Spotting Rhinos',
+                        'afternoon_activity' => 'Thrilling Wildlife Jeep Safari',
+                        'evening_activity' => 'Assamese Cultural Folk Dance Performance',
+                        'meals' => 'Breakfast & Dinner',
+                        'hotel' => 'Jungle Resort in Kaziranga',
+                        'transportation' => 'Safari Jeep & Private SUV'
+                    ],
+                    [
+                        'day_number' => 3,
+                        'title' => 'Kaziranga National Park to Shillong (280 Km | 6 Hrs)',
+                        'description' => 'Start your day with breakfast, and then embark on a drive towards Shillong, a city often referred to as the \'Scotland of the East.\' As you make your way, you\'ll reach the magnificent Umium Lake, also known as Barapani. Here, you have the option to participate in water sports activities if you desire. Upon reaching Shillong, check in at your designated hotel. In the evening, take the opportunity to explore the bustling Police Bazaar, the largest local market in the city. Enjoy the vibrant atmosphere and indulge in shopping or sampling local cuisine. Afterward, retire for the night at your accommodation in Shillong.',
+                        'morning_activity' => 'Breakfast & Scenic Drive to Shillong',
+                        'afternoon_activity' => 'Umiam Lake (Barapani) Stopover',
+                        'evening_activity' => 'Police Bazar Shopping & Night Market Walk',
+                        'meals' => 'Breakfast & Dinner',
+                        'hotel' => 'Hotel / Resort in Shillong',
+                        'transportation' => 'Private Cab / SUV'
+                    ],
+                    [
+                        'day_number' => 4,
+                        'title' => 'Shillong–Cherrapunjee-Shillong (65 km | 1.5 hrs per way)',
+                        'description' => 'After breakfast, embark on a day trip to Cherrapunjee (approximately 2-3 hours\' drive from Shillong). Visit the Seven Sisters Falls, Mawsmai Cave, and the Nohkalikai Falls, the tallest plunge waterfall in India, Eco Park, Thangkharang Park. Enjoy the breathtaking views of the landscape and the lush green valleys. Return to Shillong in the evening and relax at your hotel.',
+                        'morning_activity' => 'Excursion to Cherrapunjee & Nohkalikai Falls',
+                        'afternoon_activity' => 'Seven Sisters Waterfalls & Mawsmai Cave',
+                        'evening_activity' => 'Thangkharang Park Sunset & Return to Shillong',
+                        'meals' => 'Breakfast & Dinner',
+                        'hotel' => 'Hotel / Resort in Shillong',
+                        'transportation' => 'Private Cab / SUV'
+                    ],
+                    [
+                        'day_number' => 5,
+                        'title' => 'Shillong-Dawki-Mawlynnong-Shillong (90 km | 2 hrs per Way)',
+                        'description' => 'Embark on a one-day trip from Shillong to Dawki and Mawlynnong, starting early in the morning. Drive to Dawki and immerse yourself in the beauty of the crystal-clear Umngot River. Take a boat ride to witness the mesmerizing underwater world. After a delicious lunch in Dawki, continue your journey to Mawlynnong, known as the "Cleanest Village in Asia." Explore the village\'s well-maintained streets, visit the Living Root Bridge, and climb the Sky View Point for breathtaking panoramic views. Don\'t miss the fascinating Balancing Rock. After a day filled with natural wonders, return to Shillong in the evening and relax at the hotel.',
+                        'morning_activity' => 'Dawki Umngot River Crystal Boating',
+                        'afternoon_activity' => 'Mawlynnong Village, Living Root Bridge & Sky View',
+                        'evening_activity' => 'Return to Shillong & Relaxation',
+                        'meals' => 'Breakfast & Dinner',
+                        'hotel' => 'Hotel / Resort in Shillong',
+                        'transportation' => 'Private Cab / SUV'
+                    ],
+                    [
+                        'day_number' => 6,
+                        'title' => 'Shillong to Guwahati (100 km | 3 hrs)',
+                        'description' => 'After having breakfast, as per time permits, begin your day by visiting the Don Bosco Centre for Indigenous Cultures. This cultural center showcases the rich heritage and traditions of the indigenous people. Next, head to Ward\'s Lake, where you can take pleasure in boating activities on the serene lake. Don\'t miss the chance to visit the Cathedral Catholic Church, known for its architectural beauty. Continue your exploration by visiting Lady Hydari Park, a charming green space that offers a tranquil ambiance. Take a leisurely stroll and admire the natural beauty of the park. Later, proceed towards Guwahati, where your unforgettable journey comes to an end. You will be transferred to the airport or railway station for your onward travel, cherishing the everlasting memories created during your trip.',
+                        'morning_activity' => 'Don Bosco Centre, Ward’s Lake & Cathedral Visit',
+                        'afternoon_activity' => 'Lady Hydari Park & Drive to Guwahati',
+                        'evening_activity' => 'Transfer to Guwahati Airport / Railway Station',
+                        'meals' => 'Breakfast',
+                        'hotel' => 'N/A (Departure)',
+                        'transportation' => 'Private Cab / SUV'
+                    ]
+                ]
             ]
         ];
 
