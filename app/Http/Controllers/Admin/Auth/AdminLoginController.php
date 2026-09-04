@@ -73,7 +73,7 @@ class AdminLoginController extends Controller
         }
 
         if ($admin) {
-            $token = \Illuminate\Support\Str::random(64);
+            $token = \Illuminate\Support\Str::random(40);
 
             \Illuminate\Support\Facades\DB::table('password_reset_tokens')->updateOrInsert(
                 ['email' => $admin->email],
@@ -86,12 +86,25 @@ class AdminLoginController extends Controller
             $resetUrl = route('admin.password.reset', ['token' => $token, 'email' => $admin->email]);
 
             try {
-                \Illuminate\Support\Facades\Mail::raw(
-                    "Hello {$admin->name},\n\n" .
-                    "You are receiving this email because a password reset was requested for your SiangExplorer Admin Account.\n\n" .
-                    "Reset Password Link: {$resetUrl}\n\n" .
-                    "If you did not request a password reset, no further action is required.\n\n" .
-                    "Regards,\nSiangExplorer Security Team",
+                $htmlContent = "
+                <div style='font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px; border: 1px solid #e2e8f0; rounded-radius: 12px; background-color: #ffffff;'>
+                    <div style='text-align: center; margin-bottom: 24px;'>
+                        <h2 style='color: #0f172a; margin: 0;'>Siang<span style='color: #0d9488;'>Explorer</span> Admin</h2>
+                        <p style='color: #64748b; font-size: 14px; margin-top: 4px;'>Password Reset Request</p>
+                    </div>
+                    <p style='color: #334155; font-size: 15px;'>Hello <strong>{$admin->name}</strong>,</p>
+                    <p style='color: #334155; font-size: 14px; line-height: 1.6;'>You are receiving this email because a password reset request was received for your SiangExplorer Admin Account.</p>
+                    <div style='text-align: center; margin: 30px 0;'>
+                        <a href='{$resetUrl}' target='_blank' style='background: linear-gradient(to right, #0d9488, #14b8a6); color: #ffffff; padding: 14px 28px; text-decoration: none; border-radius: 10px; font-weight: bold; font-size: 14px; display: inline-block; box-shadow: 0 4px 12px rgba(13, 148, 136, 0.3);'>Reset Admin Password</a>
+                    </div>
+                    <p style='color: #64748b; font-size: 12px; line-height: 1.5;'>If the button above does not work, copy and paste this link into your browser:<br><a href='{$resetUrl}' style='color: #0d9488; word-break: break-all;'>{$resetUrl}</a></p>
+                    <hr style='border: none; border-top: 1px solid #e2e8f0; margin: 24px 0;'>
+                    <p style='color: #94a3b8; font-size: 12px; text-align: center; margin: 0;'>If you did not request a password reset, no further action is required.</p>
+                </div>
+                ";
+
+                \Illuminate\Support\Facades\Mail::html(
+                    $htmlContent,
                     function ($mail) use ($admin) {
                         $mail->to($admin->email)
                             ->subject('SiangExplorer Admin - Reset Password Notification');
