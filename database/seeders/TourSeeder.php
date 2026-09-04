@@ -303,6 +303,81 @@ class TourSeeder extends Seeder
                         'transportation' => 'Private Cab / SUV'
                     ]
                 ]
+            ],
+            [
+                'title' => '4 Nights 5 Days: Shillong (3N) – Guwahati (1N)',
+                'cover_image' => 'https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1200&q=80',
+                'short_description' => '04 N / 05 D Shillong 3N & Guwahati 1N tour covering Umiam Lake, Cherrapunjee, Mawlynnong, Dawki, Ward’s Lake, Brahmaputra River Cruise & Kamakhya Temple.',
+                'full_description' => 'Experience the best of Meghalaya and Assam with our 4 Nights / 5 Days Shillong and Guwahati Tour Package. Discover Scotland of the East Shillong, Nohkalikai Falls in Cherrapunjee, Asia’s Cleanest Village Mawlynnong, Dawki Umngot River, Brahmaputra River Cruise, and Kamakhya Temple in Guwahati.',
+                'destination_id' => $meghalaya?->id,
+                'category_id' => $catFamily?->id,
+                'tour_type_id' => $typeDomestic?->id,
+                'duration_days' => 5,
+                'duration_nights' => 4,
+                'starting_price' => 19999.00,
+                'discounted_price' => 16999.00,
+                'max_travelers' => 12,
+                'inclusions_text' => "3 Nights Hotel Stay in Shillong & 1 Night Hotel Stay in Guwahati\nDaily Breakfast & Dinner\nPrivate Cab for All Transfers & Sightseeing\nDawki River Boating Pass\nAll Entry Fees, Tolls & Parking",
+                'exclusions_text' => "Flight / Train tickets\nBrahmaputra River Cruise tickets\nPersonal expenses & tips\nGST 5%",
+                'is_featured' => true,
+                'is_active' => true,
+                'itineraries' => [
+                    [
+                        'day_number' => 1,
+                        'title' => 'Shillong (Arrived in Guwahati, to Shillong, Umium Lake, Police bazar)',
+                        'description' => 'Welcome to Awesome Assam. Upon reaching Guwahati Airport or Railway Station, you will be transported to Shillong, which is often referred to as the "Scotland of the East" due to its resemblance to the scenic beauty of Scotland. The distance between Guwahati and Shillong is approximately 100 kilometers, and the journey takes around 3 hours. On the way, you will have the opportunity to visit Umiam Lake, a magnificent and peaceful lake surrounded by lush green hills. Upon arrival in Shillong, you will check in to your hotel and spend the night there.',
+                        'morning_activity' => 'Arrival in Guwahati & Pickup',
+                        'afternoon_activity' => 'Visit Umiam Lake (Barapani)',
+                        'evening_activity' => 'Police Bazar Leisure Walk & Shopping',
+                        'meals' => 'Dinner',
+                        'hotel' => 'Hotel / Resort in Shillong',
+                        'transportation' => 'Private Cab / SUV'
+                    ],
+                    [
+                        'day_number' => 2,
+                        'title' => 'Shillong – Cherrapunji – Shillong (65 KM | 1.5 Hrs Per Way)',
+                        'description' => 'Following an early morning meal, you will proceed on a drive to Cherrapunjee, known as the wettest place on Earth, situated at an altitude of 4,400 feet. There, you will have the opportunity to witness the captivating Nohkalikai waterfall. Visit Eco Park, Nohkalikai Falls, Nohsngithiang Falls (Seven Sisters Falls), Mawsmai Cave, Thangkharang Park. Evening return to Shillong. Visit Elephanta Falls. Overnight stay in Shillong.',
+                        'morning_activity' => 'Drive to Cherrapunjee & Nohkalikai Falls',
+                        'afternoon_activity' => 'Seven Sisters Falls & Mawsmai Cave',
+                        'evening_activity' => 'Elephanta Falls Visit & Return to Shillong',
+                        'meals' => 'Breakfast & Dinner',
+                        'hotel' => 'Hotel / Resort in Shillong',
+                        'transportation' => 'Private Cab / SUV'
+                    ],
+                    [
+                        'day_number' => 3,
+                        'title' => 'Shillong – Dawki – Mawlynnong Village – Shillong (90 KM | 2 Hrs Per Way)',
+                        'description' => 'After enjoying an early breakfast, you will embark on a journey to Mawlynnong, known as "Asia\'s Cleanest Village." Mawlynnong is renowned for its remarkable attractions, including the living root bridge and an intriguing natural phenomenon where a boulder precariously balances on a small rock. Afterward, you will continue your trip to Dawki, a small town located near the India-Bangladesh border. Here, you can revel in the breathtaking view of the Umangot River. In the evening, you will drive back to Shillong and spend the night at your hotel.',
+                        'morning_activity' => 'Mawlynnong Village & Living Root Bridge',
+                        'afternoon_activity' => 'Dawki Umngot River Boating & Border Visit',
+                        'evening_activity' => 'Return to Shillong & Hotel Stay',
+                        'meals' => 'Breakfast & Dinner',
+                        'hotel' => 'Hotel / Resort in Shillong',
+                        'transportation' => 'Private Cab / SUV'
+                    ],
+                    [
+                        'day_number' => 4,
+                        'title' => 'Shillong – Guwahati (100 kms / 3 hrs.)',
+                        'description' => 'After breakfast visit Don Bosco Museum & Ward’s Lake. Proceed to Guwahati. In the evening you may take a River Cruise (Direct Payment) on the mighty River Brahmaputra. You may also visit the local market. Assam is famous for Assam Silk particularly Golden Muga Silk, Assam Tea, Bamboo and Cane Products. Overnight stay in Guwahati.',
+                        'morning_activity' => 'Don Bosco Museum & Ward’s Lake Visit',
+                        'afternoon_activity' => 'Drive to Guwahati & Hotel Check-in',
+                        'evening_activity' => 'Brahmaputra River Cruise & Silk Market Shopping',
+                        'meals' => 'Breakfast & Dinner',
+                        'hotel' => 'Hotel in Guwahati',
+                        'transportation' => 'Private Cab / SUV'
+                    ],
+                    [
+                        'day_number' => 5,
+                        'title' => 'Guwahati Departure',
+                        'description' => 'After having breakfast and checking out from the hotel, if time permits, we may opt for a tour of the Kamakhya Temple with cherished memories of our trip, we will then transfer you to Guwahati airport or railway station for your onward journey.',
+                        'morning_activity' => 'Breakfast & Kamakhya Temple Pilgrimage',
+                        'afternoon_activity' => 'Check-out & Transfer to Airport / Railway Station',
+                        'evening_activity' => 'Departure Onward Journey',
+                        'meals' => 'Breakfast',
+                        'hotel' => 'N/A (Departure)',
+                        'transportation' => 'Private Cab / SUV'
+                    ]
+                ]
             ]
         ];
 
