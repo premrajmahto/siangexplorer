@@ -63,7 +63,7 @@
                     <input type="email" 
                            name="email" 
                            id="email" 
-                           value="{{ old('email', 'admin@siangexplorer.com') }}" 
+                           value="{{ old('email') }}" 
                            required 
                            autofocus
                            class="w-full pl-10 pr-4 py-3 text-sm rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all">
@@ -80,7 +80,6 @@
                     <input type="password" 
                            name="password" 
                            id="password" 
-                           value="password123"
                            required 
                            class="w-full pl-10 pr-4 py-3 text-sm rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all">
                 </div>
@@ -101,10 +100,6 @@
                 Sign In to Admin Portal
             </button>
         </form>
-
-        <div class="mt-6 text-center border-t border-slate-200 pt-4">
-            <p class="text-[11px] text-slate-400">Default Credentials: <code class="bg-slate-100 px-1.5 py-0.5 rounded text-slate-600 font-mono">admin@siangexplorer.com</code> / <code class="bg-slate-100 px-1.5 py-0.5 rounded text-slate-600 font-mono">password123</code></p>
-        </div>
     </div>
 </body>
 </html>

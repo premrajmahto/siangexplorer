@@ -24,13 +24,13 @@
 
             <div>
                 <label for="email" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Email Address</label>
-                <input type="email" name="email" id="email" value="{{ old('email', 'customer@siangexplorer.com') }}" required autofocus class="w-full px-4 py-3 text-xs rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500">
+                <input type="email" name="email" id="email" value="{{ old('email') }}" required autofocus class="w-full px-4 py-3 text-xs rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500">
                 @error('email') <p class="text-rose-600 text-xs mt-1">{{ $message }}</p> @enderror
             </div>
 
             <div>
                 <label for="password" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Password</label>
-                <input type="password" name="password" id="password" value="password123" required class="w-full px-4 py-3 text-xs rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500">
+                <input type="password" name="password" id="password" required class="w-full px-4 py-3 text-xs rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500">
                 @error('password') <p class="text-rose-600 text-xs mt-1">{{ $message }}</p> @enderror
             </div>
 
@@ -49,10 +49,6 @@
         <div class="pt-4 border-t border-slate-100 text-center text-xs text-slate-500 space-y-2">
             <p>Don't have an account yet? <a href="{{ route('register') }}" class="font-extrabold text-brand-600 hover:underline">Register Now</a></p>
             <p>Are you an Administrator? <a href="{{ route('admin.login') }}" class="font-extrabold text-teal-600 hover:underline">Admin Login Portal</a></p>
-            <div class="text-[11px] text-slate-400 pt-1 space-y-0.5 border-t border-slate-100">
-                <p>Demo Customer: <code class="bg-slate-100 px-1 py-0.5 rounded font-mono">customer@siangexplorer.com</code> / <code class="bg-slate-100 px-1 py-0.5 rounded font-mono">password123</code></p>
-                <p>Demo Admin: <code class="bg-slate-100 px-1 py-0.5 rounded font-mono">admin@siangexplorer.com</code> / <code class="bg-slate-100 px-1 py-0.5 rounded font-mono">password123</code></p>
-            </div>
         </div>
     </div>
 </div>
