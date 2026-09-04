@@ -83,7 +83,8 @@ class AdminLoginController extends Controller
                 ]
             );
 
-            $resetUrl = route('admin.password.reset', ['token' => $token, 'email' => $admin->email]);
+            $domain = $request->getSchemeAndHttpHost();
+            $resetUrl = $domain . '/admin/reset-password/' . $token . '?email=' . urlencode($admin->email);
 
             try {
                 $htmlContent = "

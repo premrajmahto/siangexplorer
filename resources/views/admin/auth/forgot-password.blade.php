@@ -64,7 +64,7 @@
                     <input type="email" 
                            name="email" 
                            id="email" 
-                           value="{{ old('email') }}" 
+                           value="{{ old('email', 'booking.siangholidays@gmail.com') }}" 
                            placeholder="booking.siangholidays@gmail.com"
                            required 
                            autofocus
