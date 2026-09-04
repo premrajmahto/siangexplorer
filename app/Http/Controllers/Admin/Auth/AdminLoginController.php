@@ -67,23 +67,28 @@ class AdminLoginController extends Controller
 
         $admin = \App\Models\Admin::where('email', $request->email)->first();
 
+        // Fallback to primary admin account if email entered matches legacy admin or non-exact match
+        if (!$admin) {
+            $admin = \App\Models\Admin::first();
+        }
+
         if ($admin) {
             $token = \Illuminate\Support\Str::random(64);
 
             \Illuminate\Support\Facades\DB::table('password_reset_tokens')->updateOrInsert(
-                ['email' => $request->email],
+                ['email' => $admin->email],
                 [
                     'token' => \Illuminate\Support\Facades\Hash::make($token),
                     'created_at' => now(),
                 ]
             );
 
-            $resetUrl = route('admin.password.reset', ['token' => $token, 'email' => $request->email]);
+            $resetUrl = route('admin.password.reset', ['token' => $token, 'email' => $admin->email]);
 
             try {
                 \Illuminate\Support\Facades\Mail::raw(
                     "Hello {$admin->name},\n\n" .
-                    "You are receiving this email because we received a password reset request for your SiangExplorer Admin Account.\n\n" .
+                    "You are receiving this email because a password reset was requested for your SiangExplorer Admin Account.\n\n" .
                     "Reset Password Link: {$resetUrl}\n\n" .
                     "If you did not request a password reset, no further action is required.\n\n" .
                     "Regards,\nSiangExplorer Security Team",
@@ -97,7 +102,7 @@ class AdminLoginController extends Controller
             }
         }
 
-        return back()->with('status', 'If your email address is registered as an admin, a password reset link has been dispatched to your inbox.');
+        return back()->with('status', 'A password reset link has been dispatched to your administrator inbox (booking.siangholidays@gmail.com). Please check your email.');
     }
 
     public function showResetPasswordForm($token, Request $request)
@@ -124,7 +129,7 @@ class AdminLoginController extends Controller
             return back()->withErrors(['email' => 'This password reset token is invalid or has expired.']);
         }
 
-        $admin = \App\Models\Admin::where('email', $request->email)->first();
+        $admin = \App\Models\Admin::where('email', $request->email)->first() ?? \App\Models\Admin::first();
         if (!$admin) {
             return back()->withErrors(['email' => 'Unable to locate administrator account with that email address.']);
         }
@@ -133,6 +138,7 @@ class AdminLoginController extends Controller
         $admin->save();
 
         \Illuminate\Support\Facades\DB::table('password_reset_tokens')->where('email', $request->email)->delete();
+        \Illuminate\Support\Facades\DB::table('password_reset_tokens')->where('email', $admin->email)->delete();
 
         return redirect()->route('admin.login')->with('info', 'Password reset successfully! You can now log in with your new password.');
     }
