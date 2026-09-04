@@ -106,4 +106,21 @@ class AdminDashboardController extends Controller
             'revenueData'
         ));
     }
+
+    public function syncLiveData()
+    {
+        try {
+            $gitOutput = shell_exec('git pull origin main 2>&1') ?? 'Git executed';
+
+            \Illuminate\Support\Facades\Artisan::call('db:seed', ['--class' => 'TourSeeder', '--force' => true]);
+            \Illuminate\Support\Facades\Artisan::call('db:seed', ['--class' => 'PageSeeder', '--force' => true]);
+            \Illuminate\Support\Facades\Artisan::call('config:clear');
+            \Illuminate\Support\Facades\Artisan::call('cache:clear');
+            \Illuminate\Support\Facades\Artisan::call('view:clear');
+
+            return redirect()->back()->with('success', 'Hostinger Live Server Database and Seeders synced successfully!');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Sync failed: ' . $e->getMessage());
+        }
+    }
 }

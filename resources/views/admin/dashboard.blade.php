@@ -10,6 +10,13 @@
         <p class="text-xs text-slate-500 font-medium mt-0.5">Real-time statistics for tour bookings, car/bike rentals, hotel enquiries, revenue, and leads.</p>
     </div>
     <div class="flex flex-wrap items-center gap-3">
+        <form action="{{ route('admin.deploy.sync') }}" method="POST" class="inline-block" onsubmit="return confirm('Do you want to pull latest code and re-seed all tours on the live server?');">
+            @csrf
+            <button type="submit" class="inline-flex items-center space-x-2 px-4 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl shadow-md shadow-emerald-600/20 transition-all">
+                <i class="fa-solid fa-rotate text-xs"></i>
+                <span>Sync Live Server & Database</span>
+            </button>
+        </form>
         <a href="{{ route('admin.service-enquiries.index') }}" 
            class="inline-flex items-center space-x-2 px-4 py-2.5 bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs rounded-xl shadow-md shadow-teal-600/20 transition-all">
             <i class="fa-solid fa-car-side text-xs"></i>

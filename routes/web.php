@@ -68,6 +68,26 @@ Route::post('/booking/{tour}', [BookingController::class, 'process'])->name('boo
 Route::get('/booking/confirmation/{reference}', [BookingController::class, 'confirmation'])->name('booking.confirmation');
 Route::post('/enquiry', [ContactController::class, 'submit'])->name('enquiry.submit');
 
+// Deployment Auto-Sync Endpoint for Hostinger
+Route::get('/deploy-sync-hostinger-seeder', function (\Illuminate\Http\Request $request) {
+    if ($request->query('key') !== 'siangexplorer_secret_deploy_2026') {
+        return response()->json(['status' => 'error', 'message' => 'Unauthorized key'], 403);
+    }
+
+    $gitOutput = shell_exec('git pull origin main 2>&1') ?? 'Git executed';
+    \Illuminate\Support\Facades\Artisan::call('db:seed', ['--class' => 'TourSeeder', '--force' => true]);
+    \Illuminate\Support\Facades\Artisan::call('db:seed', ['--class' => 'PageSeeder', '--force' => true]);
+    \Illuminate\Support\Facades\Artisan::call('config:clear');
+    \Illuminate\Support\Facades\Artisan::call('cache:clear');
+    \Illuminate\Support\Facades\Artisan::call('view:clear');
+
+    return response()->json([
+        'status' => 'success',
+        'message' => 'Hostinger Live Server updated and seeded successfully!',
+        'git_output' => trim($gitOutput),
+    ]);
+});
+
 // Customer Guest Auth Routes
 Route::post('/logout', [CustomerAuthController::class, 'logout'])->name('logout');
 Route::middleware('guest:web')->group(function () {
@@ -106,6 +126,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::post('/logout', [AdminLoginController::class, 'logout'])->name('logout');
         Route::get('/', [AdminDashboardController::class, 'index'])->name('dashboard');
         Route::get('/dashboard', [AdminDashboardController::class, 'index']);
+        Route::post('/deploy/sync', [AdminDashboardController::class, 'syncLiveData'])->name('deploy.sync');
 
         // Destination Management Routes
         Route::resource('destinations', AdminDestinationController::class);
