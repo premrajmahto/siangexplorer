@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Login | SiangExplorer</title>
+    <title>Forgot Password | SiangExplorer Admin</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -24,8 +24,8 @@
 </head>
 <body class="h-full flex items-center justify-center p-4 bg-gradient-to-br from-slate-950 via-slate-900 to-teal-950">
     <div class="w-full max-w-md bg-white/95 backdrop-blur-xl p-8 rounded-3xl shadow-2xl border border-white/20">
-        <!-- Logo & Branding -->
-        <div class="text-center mb-8">
+        <!-- Logo & Header -->
+        <div class="text-center mb-6">
             @if($logo = \App\Models\Setting::get('site_logo', '/images/logo.png'))
                 <div class="bg-white p-3.5 rounded-2xl shadow-xl border border-slate-200 inline-block mx-auto mb-3">
                     <img src="{{ asset($logo) }}" alt="SiangExplorer Admin" class="h-12 w-auto object-contain">
@@ -36,7 +36,8 @@
                 </div>
                 <h1 class="text-2xl font-extrabold text-slate-900 tracking-tight">Siang<span class="text-brand-600">Explorer</span></h1>
             @endif
-            <p class="text-xs font-semibold text-slate-500 uppercase tracking-widest mt-2">Admin Management Portal</p>
+            <h2 class="text-xl font-bold text-slate-900 mt-2">Reset Admin Password</h2>
+            <p class="text-xs text-slate-500 mt-1">Enter your registered admin email address and we'll send you instructions to reset your password.</p>
         </div>
 
         @if(session('status'))
@@ -53,24 +54,18 @@
             </div>
         @endif
 
-        @if(session('info'))
-            <div class="mb-4 p-3.5 rounded-xl bg-sky-50 border border-sky-200 text-sky-700 text-xs font-medium flex items-center space-x-2">
-                <i class="fa-solid fa-circle-info"></i>
-                <span>{{ session('info') }}</span>
-            </div>
-        @endif
-
-        <form action="{{ route('admin.login.submit') }}" method="POST" class="space-y-5">
+        <form action="{{ route('admin.password.email') }}" method="POST" class="space-y-5">
             @csrf
 
             <div>
-                <label for="email" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Email Address</label>
+                <label for="email" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Registered Email Address</label>
                 <div class="relative">
                     <i class="fa-solid fa-envelope absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
                     <input type="email" 
                            name="email" 
                            id="email" 
                            value="{{ old('email') }}" 
+                           placeholder="admin@siangexplorer.com"
                            required 
                            autofocus
                            class="w-full pl-10 pr-4 py-3 text-sm rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all">
@@ -80,34 +75,19 @@
                 @enderror
             </div>
 
-            <div>
-                <label for="password" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Password</label>
-                <div class="relative">
-                    <i class="fa-solid fa-lock absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
-                    <input type="password" 
-                           name="password" 
-                           id="password" 
-                           required 
-                           class="w-full pl-10 pr-4 py-3 text-sm rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all">
-                </div>
-                @error('password')
-                    <p class="text-rose-600 text-xs mt-1 font-medium">{{ $message }}</p>
-                @enderror
-            </div>
-
-            <div class="flex items-center justify-between text-xs">
-                <label class="flex items-center space-x-2 cursor-pointer">
-                    <input type="checkbox" name="remember" class="rounded text-brand-600 focus:ring-brand-500 w-4 h-4 border-slate-300">
-                    <span class="text-slate-600 font-medium">Remember me</span>
-                </label>
-                <a href="{{ route('admin.password.request') }}" class="font-bold text-brand-600 hover:text-brand-700 hover:underline transition-colors">Forgot Password?</a>
-            </div>
-
             <button type="submit" 
-                    class="w-full py-3.5 px-4 bg-gradient-to-r from-brand-600 to-teal-600 hover:from-brand-700 hover:to-teal-700 text-white font-bold text-sm rounded-xl shadow-lg shadow-brand-600/30 transition-all transform active:scale-[0.98]">
-                Sign In to Admin Portal
+                    class="w-full py-3.5 px-4 bg-gradient-to-r from-brand-600 to-teal-600 hover:from-brand-700 hover:to-teal-700 text-white font-bold text-sm rounded-xl shadow-lg shadow-brand-600/30 transition-all transform active:scale-[0.98] flex items-center justify-center space-x-2">
+                <i class="fa-solid fa-paper-plane text-xs"></i>
+                <span>Send Password Reset Link</span>
             </button>
         </form>
+
+        <div class="mt-6 text-center border-t border-slate-200 pt-4">
+            <a href="{{ route('admin.login') }}" class="text-xs font-bold text-slate-600 hover:text-brand-600 inline-flex items-center space-x-1.5 transition-colors">
+                <i class="fa-solid fa-arrow-left text-[10px]"></i>
+                <span>Back to Admin Login</span>
+            </a>
+        </div>
     </div>
 </body>
 </html>

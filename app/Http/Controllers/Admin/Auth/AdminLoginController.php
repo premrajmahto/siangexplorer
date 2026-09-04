@@ -50,4 +50,90 @@ class AdminLoginController extends Controller
 
         return redirect()->route('admin.login')->with('info', 'You have been logged out successfully.');
     }
+
+    public function showForgotPasswordForm()
+    {
+        if (Auth::guard('admin')->check()) {
+            return redirect()->route('admin.dashboard');
+        }
+        return view('admin.auth.forgot-password');
+    }
+
+    public function sendResetLinkEmail(Request $request)
+    {
+        $request->validate([
+            'email' => ['required', 'email'],
+        ]);
+
+        $admin = \App\Models\Admin::where('email', $request->email)->first();
+
+        if ($admin) {
+            $token = \Illuminate\Support\Str::random(64);
+
+            \Illuminate\Support\Facades\DB::table('password_reset_tokens')->updateOrInsert(
+                ['email' => $request->email],
+                [
+                    'token' => \Illuminate\Support\Facades\Hash::make($token),
+                    'created_at' => now(),
+                ]
+            );
+
+            $resetUrl = route('admin.password.reset', ['token' => $token, 'email' => $request->email]);
+
+            try {
+                \Illuminate\Support\Facades\Mail::raw(
+                    "Hello {$admin->name},\n\n" .
+                    "You are receiving this email because we received a password reset request for your SiangExplorer Admin Account.\n\n" .
+                    "Reset Password Link: {$resetUrl}\n\n" .
+                    "If you did not request a password reset, no further action is required.\n\n" .
+                    "Regards,\nSiangExplorer Security Team",
+                    function ($mail) use ($admin) {
+                        $mail->to($admin->email)
+                            ->subject('SiangExplorer Admin - Reset Password Notification');
+                    }
+                );
+            } catch (\Throwable $e) {
+                \Illuminate\Support\Facades\Log::error('Admin reset password email error: ' . $e->getMessage());
+            }
+        }
+
+        return back()->with('status', 'If your email address is registered as an admin, a password reset link has been dispatched to your inbox.');
+    }
+
+    public function showResetPasswordForm($token, Request $request)
+    {
+        return view('admin.auth.reset-password', [
+            'token' => $token,
+            'email' => $request->email,
+        ]);
+    }
+
+    public function resetPassword(Request $request)
+    {
+        $request->validate([
+            'token' => ['required'],
+            'email' => ['required', 'email'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+
+        $tokenRecord = \Illuminate\Support\Facades\DB::table('password_reset_tokens')
+            ->where('email', $request->email)
+            ->first();
+
+        if (!$tokenRecord || !\Illuminate\Support\Facades\Hash::check($request->token, $tokenRecord->token)) {
+            return back()->withErrors(['email' => 'This password reset token is invalid or has expired.']);
+        }
+
+        $admin = \App\Models\Admin::where('email', $request->email)->first();
+        if (!$admin) {
+            return back()->withErrors(['email' => 'Unable to locate administrator account with that email address.']);
+        }
+
+        $admin->password = $request->password;
+        $admin->save();
+
+        \Illuminate\Support\Facades\DB::table('password_reset_tokens')->where('email', $request->email)->delete();
+
+        return redirect()->route('admin.login')->with('info', 'Password reset successfully! You can now log in with your new password.');
+    }
 }

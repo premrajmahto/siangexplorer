@@ -90,10 +90,15 @@ Route::middleware('auth:web')->prefix('customer')->name('customer.')->group(func
 
 // Admin Routes Group
 Route::prefix('admin')->name('admin.')->group(function () {
-    // Admin Guest Routes (Login)
+    // Admin Guest Routes (Login & Password Reset)
     Route::middleware('guest:admin')->group(function () {
         Route::get('/login', [AdminLoginController::class, 'showLoginForm'])->name('login');
         Route::post('/login', [AdminLoginController::class, 'login'])->name('login.submit');
+
+        Route::get('/forgot-password', [AdminLoginController::class, 'showForgotPasswordForm'])->name('password.request');
+        Route::post('/forgot-password', [AdminLoginController::class, 'sendResetLinkEmail'])->name('password.email');
+        Route::get('/reset-password/{token}', [AdminLoginController::class, 'showResetPasswordForm'])->name('password.reset');
+        Route::post('/reset-password', [AdminLoginController::class, 'resetPassword'])->name('password.update');
     });
 
     // Admin Authenticated Routes
