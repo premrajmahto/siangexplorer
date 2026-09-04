@@ -841,6 +841,114 @@ class TourSeeder extends Seeder
                         'transportation' => 'Private Cab / SUV'
                     ]
                 ]
+            ],
+            [
+                'title' => '7 N 8 D (  Tezpur 1,Dirang 1, Tawang 3 , Bomdila 1, Guwahati 1 )',
+                'cover_image' => 'https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=1200&q=80',
+                'short_description' => '07 N / 08 D Extended Arunachal & Assam Expedition covering Tezpur 1N, Dirang 1N, Tawang 3N, Bomdila 1N & Guwahati 1N with Sela Pass, Bum La Pass, Madhuri Lake & Kamakhya Temple.',
+                'full_description' => 'Experience the grand 8-day Himalayan odyssey across Western Arunachal Pradesh. Explore Tezpur Agnigarh Hill, Tipi Orchid Research Centre, Dirang Hot Water Spring, Sangti Valley, snow-bound Sela Pass (13,700 ft), Nuranang Falls, Tawang Monastery, full day dedicated excursion to Bum La Pass (Indo-China Border) & Madhuri Lake, Bomdila Monastery, Brahmaputra River Cruise, and Kamakhya Temple in Guwahati.',
+                'destination_id' => $arunachal?->id,
+                'category_id' => $catAdventure?->id,
+                'tour_type_id' => $typeDomestic?->id,
+                'duration_days' => 8,
+                'duration_nights' => 7,
+                'starting_price' => 36999.00,
+                'discounted_price' => 32999.00,
+                'max_travelers' => 12,
+                'inclusions_text' => "1N Stay in Tezpur, 1N in Dirang, 3N in Tawang, 1N in Bomdila & 1N in Guwahati\nDaily Breakfast & Dinner\nInner Line Permit (ILP) Assistance for Arunachal Pradesh\nPrivate SUV / Sedan for Transfers & Sightseeing\nAll Entry Fees, Permits & Parking Charges",
+                'exclusions_text' => "Flight / Train tickets\nBum La Pass & Madhuri Lake local taxi charges (~₹5,500/vehicle + entry fees)\nBrahmaputra River Cruise tickets\nPersonal expenses & tips\nGST 5%",
+                'is_featured' => true,
+                'is_active' => true,
+                'itineraries' => [
+                    [
+                        'day_number' => 1,
+                        'title' => 'Guwahati– Tezpur (200 KM | 4 Hrs)',
+                        'description' => 'Welcome to Awesome Assam. Meet and be assisted by our representative at the airport/Railway station. Transfer to Tezpur. Start your journey from Guwahati in the morning. After reaching Tezpur, check into your accommodation and take some rest. In the afternoon, you can visit some popular attractions in Tezpur like Agnigarh Hill, Cole Park and Mahabhairav Temple. Enjoy the evening exploring the local markets and trying out local delicacies. Overnight stay in Tezpur.',
+                        'morning_activity' => 'Guwahati Airport / Station Pickup & Drive to Tezpur',
+                        'afternoon_activity' => 'Agnigarh Hill, Cole Park & Mahabhairav Temple',
+                        'evening_activity' => 'Tezpur Local Market & Food Exploration',
+                        'meals' => 'Dinner',
+                        'hotel' => 'Hotel in Tezpur',
+                        'transportation' => 'Private Cab / SUV'
+                    ],
+                    [
+                        'day_number' => 2,
+                        'title' => 'Tezpur – Dirang (187 Km | 4-5 Hrs)',
+                        'description' => 'After Breakfast Proceed to Dirang. On the way visit Orchid Research Centre Tipi, an orchidarium with about 10,000 orchid plants belonging to various genera and species. Arunachal has the largest range of orchids in the country. Continue your drive and do not forget to keep your cameras handy as you cross beautiful waterfalls and get some spectacular views. Enroute visit Nag Mandir. Arrive and check in to your hotel. After lunch visit the regional apple Nursery, kiwi farm, hot water spring, Sangti Valley. Overnight stay in Dirang.',
+                        'morning_activity' => 'Drive to Dirang & Tipi Orchid Research Centre',
+                        'afternoon_activity' => 'Nag Mandir Stopover & Dirang Check-in',
+                        'evening_activity' => 'Apple Nursery, Kiwi Farm, Hot Spring & Sangti Valley',
+                        'meals' => 'Breakfast & Dinner',
+                        'hotel' => 'Hotel / Resort in Dirang',
+                        'transportation' => 'Private Cab / SUV'
+                    ],
+                    [
+                        'day_number' => 3,
+                        'title' => 'Dirang – Tawang (140 Km | 6 Hrs)',
+                        'description' => 'After having breakfast visit Dirang Monastery and proceed towards Tawang. On the way, make a stop at the war cemetery to pay respects. Resume your journey and reach Sela Pass, which stands at an impressive altitude of 4170 meters (13700 feet). This pass is renowned for its breathtaking lakes and scenic landscapes. Continue driving until you arrive at the Jaswant Garh War Memorial, a tribute to the courageous Indian soldier Jaswant Singh Rawat. Take some time to visit the Nuranang Falls, also known as Jang Falls. Finally, reach Tawang and check in at your hotel for an overnight stay.',
+                        'morning_activity' => 'Dirang Monastery Visit & Drive to Sela Pass (13,700 ft)',
+                        'afternoon_activity' => 'Jaswant Garh War Memorial & Nuranang Waterfalls (Jang)',
+                        'evening_activity' => 'Tawang Arrival & Hotel Check-in',
+                        'meals' => 'Breakfast & Dinner',
+                        'hotel' => 'Hotel in Tawang',
+                        'transportation' => 'Private Cab / SUV'
+                    ],
+                    [
+                        'day_number' => 4,
+                        'title' => 'Tawang Local Sightseeing',
+                        'description' => 'After breakfast visit Tawang Monastery (Namgey Lhatse), Singsor Ani Gompa, and Tawang War Memorial. Evening return back to the hotel. Overnight stay in Tawang.',
+                        'morning_activity' => 'Tawang Monastery (Namgey Lhatse) Visit',
+                        'afternoon_activity' => 'Singsor Ani Gompa & Tawang War Memorial',
+                        'evening_activity' => 'Tawang Local Craft Market & Evening Walk',
+                        'meals' => 'Breakfast & Dinner',
+                        'hotel' => 'Hotel in Tawang',
+                        'transportation' => 'Private Cab / SUV'
+                    ],
+                    [
+                        'day_number' => 5,
+                        'title' => 'Tawang – Bumla Pass (China Border) – Madhuri Lake - Tawang',
+                        'description' => 'After breakfast, visit Bum La Pass (Indo-China Border) for which you will have to take a permit from the DC office at Tawang on your own, Sangestar Lake (Madhuri Lake) and Pangateng Tso Lake (P.Tso Lake). Please note that for these visits, you\'ll need to hire a local taxi in Tawang and pay directly for the service, as our vehicles are not allowed in that area. Extra cost 5,500 INR per vehicle and 100 INR per ticket per person.',
+                        'morning_activity' => 'Excursion to Bum La Pass (Indo-China Border - 15,200 ft)',
+                        'afternoon_activity' => 'Sangestar Lake (Madhuri Lake) & P.Tso Lake',
+                        'evening_activity' => 'Return to Tawang Hotel & Relaxation',
+                        'meals' => 'Breakfast & Dinner',
+                        'hotel' => 'Hotel in Tawang',
+                        'transportation' => 'Local Tawang Sumo Taxi'
+                    ],
+                    [
+                        'day_number' => 6,
+                        'title' => 'Tawang– Bomdila (190 KM | 7-8 HRS)',
+                        'description' => 'After enjoying your breakfast, proceed to Bomdila and complete the check-in process at your hotel upon arrival. Take the opportunity to visit the prominent attractions in Bomdila, such as the Bomdila Monastery. In the evening, you can explore the local market and immerse yourself in the vibrant atmosphere. Conclude the day with a comfortable overnight stay in Bomdila.',
+                        'morning_activity' => 'Breakfast & Drive from Tawang to Bomdila',
+                        'afternoon_activity' => 'Bomdila Hotel Check-in & Bomdila Monastery Visit',
+                        'evening_activity' => 'Bomdila Local Market & Handicraft Shopping',
+                        'meals' => 'Breakfast & Dinner',
+                        'hotel' => 'Hotel in Bomdila',
+                        'transportation' => 'Private Cab / SUV'
+                    ],
+                    [
+                        'day_number' => 7,
+                        'title' => 'Bomdila– Guwahati (335 KM | 6 – 7 HRS)',
+                        'description' => 'After Breakfast transfer to Guwahati. Check in to your hotel. Evening you may take a River Cruise (Direct Payment) on the mighty River Brahmaputra. You may also visit the local market. Assam is famous for Assam Silk particularly Golden Muga Silk, Assam Tea, Bamboo and Cane Products. Overnight stay in Guwahati.',
+                        'morning_activity' => 'Drive from Bomdila down to Guwahati',
+                        'afternoon_activity' => 'Hotel Check-in & Relaxation',
+                        'evening_activity' => 'Brahmaputra River Cruise & Silk Market Shopping',
+                        'meals' => 'Breakfast & Dinner',
+                        'hotel' => 'Hotel in Guwahati',
+                        'transportation' => 'Private Cab / SUV'
+                    ],
+                    [
+                        'day_number' => 8,
+                        'title' => 'Guwahati Kamakhya Temple & Departure',
+                        'description' => 'After breakfast check out from the hotel. Visit the Kamakhya Temple With everlasting memories transfer to Guwahati airport/railway station for onward journey.',
+                        'morning_activity' => 'Breakfast & Kamakhya Temple Pilgrimage Visit',
+                        'afternoon_activity' => 'Check-out & Transfer to Airport / Railway Station',
+                        'evening_activity' => 'Departure Onward Journey',
+                        'meals' => 'Breakfast',
+                        'hotel' => 'N/A (Departure)',
+                        'transportation' => 'Private Cab / SUV'
+                    ]
+                ]
             ]
         ];
 
