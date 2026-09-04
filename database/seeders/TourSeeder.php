@@ -1057,6 +1057,147 @@ class TourSeeder extends Seeder
                         'transportation' => 'Private Cab / SUV'
                     ]
                 ]
+            ],
+            [
+                'title' => '10 N 11 D ( Shillong 3 , Kaziranga 2 , Dirang 1 , Tawang 3 , Bomdila 1 ,Guwahati 1 )',
+                'cover_image' => 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1200&q=80',
+                'short_description' => '10 N / 11 D Grand Northeast Explorer covering Shillong 3N, Kaziranga 2N, Dirang 1N, Tawang 2N, Bomdila 1N & Guwahati 1N with Cherrapunjee, Dawki, Safaris, Sela Pass & Tawang Monastery.',
+                'full_description' => 'The ultimate 11-day North East India Circuit! Experience Meghalaya’s Umiam Lake, Cherrapunjee Nohkalikai Falls, Dawki Umngot River & Mawlynnong Cleanest Village; Kaziranga National Park’s One-Horned Rhino Elephant & Jeep Safaris; Arunachal’s Tipi Orchidarium, Dirang Hot Water Springs, snow-covered Sela Pass (13,700 ft), Nuranang Waterfalls, Tawang Monastery, Bomdila Monastery, Brahmaputra River Cruise, and Kamakhya Temple in Guwahati.',
+                'destination_id' => $meghalaya?->id,
+                'category_id' => $catFamily?->id,
+                'tour_type_id' => $typeDomestic?->id,
+                'duration_days' => 11,
+                'duration_nights' => 10,
+                'starting_price' => 49999.00,
+                'discounted_price' => 44999.00,
+                'max_travelers' => 12,
+                'inclusions_text' => "3N Stay in Shillong, 2N in Kaziranga, 1N in Dirang, 2N in Tawang, 1N in Bomdila & 1N in Guwahati\nDaily Breakfast & Dinner\nKaziranga Elephant & Jeep Safari Passes\nInner Line Permit (ILP) Assistance for Arunachal Pradesh\nPrivate SUV / Sedan for Transfers & Sightseeing\nDawki Umngot River Boating Pass\nAll Entry Fees, Permits & Parking Charges",
+                'exclusions_text' => "Flight / Train tickets\nBum La Pass & Madhuri Lake local taxi charges (~₹5,500/vehicle + entry fees)\nBrahmaputra River Cruise tickets\nPersonal expenses & tips\nGST 5%",
+                'is_featured' => true,
+                'is_active' => true,
+                'itineraries' => [
+                    [
+                        'day_number' => 1,
+                        'title' => 'Guwahati – Shillong (100 KM | 3 Hrs)',
+                        'description' => 'Welcome to Awesome Assam. Meet and be assisted by our representative at the airport/Railway Station. Proceed to Shillong, also called ‘Scotland of the East”. Reach the majestic Umium Lake (Barapani). You may do the water sports here (Optional). On arrival at Shillong, check in at your hotel. Evening you can visit the Police Bazaar which is the biggest local market. Overnight stay in Shillong.',
+                        'morning_activity' => 'Guwahati Pickup & Transfer to Shillong',
+                        'afternoon_activity' => 'Umiam Lake (Barapani) Scenic Stop',
+                        'evening_activity' => 'Police Bazar Shopping Walk & Hotel Check-in',
+                        'meals' => 'Dinner',
+                        'hotel' => 'Hotel / Resort in Shillong',
+                        'transportation' => 'Private Cab / SUV'
+                    ],
+                    [
+                        'day_number' => 2,
+                        'title' => 'Shillong – Cherrapunji – Shillong (65 KM | 1.5 Hrs Per Way)',
+                        'description' => 'Get up early today to enjoy the mesmerizing mornings of Shillong. After an early breakfast drive to Cherrapunji, this is the wettest place in the world. Visit Eco Park, Nohkalikai Falls, Nohsngithiang Falls (Seven Sisters Falls), Mawsmai Cave, Thangkharang Park. Evening return to Shillong. Overnight stay in Shillong.',
+                        'morning_activity' => 'Excursion to Cherrapunjee & Nohkalikai Falls',
+                        'afternoon_activity' => 'Seven Sisters Waterfalls & Mawsmai Cave',
+                        'evening_activity' => 'Thangkharang Park Sunset & Return to Shillong',
+                        'meals' => 'Breakfast & Dinner',
+                        'hotel' => 'Hotel / Resort in Shillong',
+                        'transportation' => 'Private Cab / SUV'
+                    ],
+                    [
+                        'day_number' => 3,
+                        'title' => 'Shillong – Dawki – Mawlynnong Village – Shillong (90 KM | 2 Hrs Per Way)',
+                        'description' => 'After breakfast visit Mawlynnong Village the cleanest village in India. This cute and colorful little village is known for its cleanliness. It is situated 90 kms. from Shillong and besides the picturesque village, offers many interesting sights such as the Living Root Bridge and another strange natural phenomenon of a boulder balancing on another rock. Visit Dawki, It is along the Indo-Bangladesh border. You can enjoy boating in the crystal clear waters of the Umgnot River. Evening we will return back to Shillong. Overnight in Shillong.',
+                        'morning_activity' => 'Dawki Umngot River Crystal Boating',
+                        'afternoon_activity' => 'Mawlynnong Cleanest Village & Living Root Bridge',
+                        'evening_activity' => 'Return to Shillong & Evening Relaxation',
+                        'meals' => 'Breakfast & Dinner',
+                        'hotel' => 'Hotel / Resort in Shillong',
+                        'transportation' => 'Private Cab / SUV'
+                    ],
+                    [
+                        'day_number' => 4,
+                        'title' => 'Shillong – Kaziranga National Park (280 KM | 6 Hrs)',
+                        'description' => 'After breakfast transfer to Kaziranga National Park, the home of the One Horn Indian Rhinoceros. Check in at your hotel/Lodge/resort. Evening you may visit Orchid Park and the nearby Tea Plantations. Overnight stay at Kaziranga National Park.',
+                        'morning_activity' => 'Breakfast & Drive to Kaziranga National Park',
+                        'afternoon_activity' => 'Resort Check-in & Relaxation',
+                        'evening_activity' => 'Orchid Park & Tea Plantation Walk',
+                        'meals' => 'Breakfast & Dinner',
+                        'hotel' => 'Jungle Resort in Kaziranga',
+                        'transportation' => 'Private Cab / SUV'
+                    ],
+                    [
+                        'day_number' => 5,
+                        'title' => 'Kaziranga National Park Elephant & Jeep Safaris',
+                        'description' => 'Experience the wonders of Kaziranga National Park with an early morning elephant safari, allowing you to explore the park\'s diverse wildlife. Besides the endangered One-Horn Indian Rhinoceros, the park boasts a significant population of genetically pure Wild Water Buffaloes, over 1000 Wild elephants, and a dense population of Royal Bengal Tigers. Bird enthusiasts will delight in spotting the park\'s 500 species of birds, including the Crested Serpent Eagle, Palla\'s Fishing Eagle, Greyheaded Fishing Eagle, and many more. After the safari, return to the resort for breakfast. In the afternoon, enjoy a thrilling jeep safari, further immersing yourself in the park\'s natural wonders. As the day concludes, return to the hotel for a comfortable overnight stay within the Kaziranga National Park.',
+                        'morning_activity' => 'Early Morning Elephant Safari & Spotting Rhinos',
+                        'afternoon_activity' => 'Thrilling Wildlife Jeep Safari',
+                        'evening_activity' => 'Assamese Cultural Folk Dance Performance',
+                        'meals' => 'Breakfast & Dinner',
+                        'hotel' => 'Jungle Resort in Kaziranga',
+                        'transportation' => 'Safari Jeep & Private SUV'
+                    ],
+                    [
+                        'day_number' => 6,
+                        'title' => 'Kaziranga National Park – Dirang (260 Km | 6 to 7 Hrs)',
+                        'description' => 'Start early in the morning for Dirang. On the way visit Orchid Research Centre Tipi, an orchidarium with about 10,000 orchid plants belonging to various genera and species. Arunachal has the largest range of orchids in the country. Continue your drive and do not forget to keep your cameras handy as you cross beautiful waterfalls and get some spectacular views. Enroute visit Nag Mandir. Arrive and check in to your hotel. After lunch visit the regional apple Nursery, kiwi farm, hot water spring, Sangti Valley. Overnight stay in Dirang.',
+                        'morning_activity' => 'Drive from Kaziranga to Dirang & Tipi Orchidarium',
+                        'afternoon_activity' => 'Nag Mandir Visit & Dirang Hotel Check-in',
+                        'evening_activity' => 'Apple Nursery, Kiwi Farm, Hot Spring & Sangti Valley Walk',
+                        'meals' => 'Breakfast & Dinner',
+                        'hotel' => 'Hotel / Resort in Dirang',
+                        'transportation' => 'Private Cab / SUV'
+                    ],
+                    [
+                        'day_number' => 7,
+                        'title' => 'Dirang – Tawang (140 Km | 6 Hrs)',
+                        'description' => 'After breakfast visit Dirang Monestry and transfer to Tawang. Enroute visit the war cemetery. Continue with the drive till you reach Sela Pass at an altitude of 4170 m / 13700 ft. It is famous for high altitude lakes & scenic beauty. Continue the drive to JaswantGarh War Memorial, a memorial of the brave Indian soldier Jaswant Singh Rawat. Visit Nuranang Falls (Jang Falls). Arrive and check in the hotel. Overnight stay in Tawang.',
+                        'morning_activity' => 'Dirang Monastery Visit & Drive to Sela Pass (13,700 ft)',
+                        'afternoon_activity' => 'Jaswant Garh War Memorial & Nuranang Waterfalls (Jang)',
+                        'evening_activity' => 'Tawang Arrival & Hotel Check-in',
+                        'meals' => 'Breakfast & Dinner',
+                        'hotel' => 'Hotel in Tawang',
+                        'transportation' => 'Private Cab / SUV'
+                    ],
+                    [
+                        'day_number' => 8,
+                        'title' => 'Tawang Local Sightseeing / Optional Bum La Pass & Madhuri Lake',
+                        'description' => 'After breakfast we have 2 options for the day. We can visit Bum La Pass (Indo-China Border) for which you will have to take a permit from the DC office at Tawang on your own, Sangestar Lake (Madhuri Lake) and Pangateng Tso Lake (P.Tso Lake). Please Note you will also have to take a local taxi in Tawang on direct payment basis to cover these places as our vehicles are not allowed. OR you may visit Tawang Monastery (Namgey Lhatse), Singsor Ani Gompa, and Tawang War Memorial. Please Note It may not be possible to cover all the places in a day in case you visit Bumla Pass and Madhuri lake. Evening return back to the hotel. Overnight stay in Tawang.',
+                        'morning_activity' => 'Tawang Monastery (Namgey Lhatse) & Singsor Ani Gompa',
+                        'afternoon_activity' => 'Tawang War Memorial & Craft Centre (or Bum La Pass / Madhuri Lake Trek)',
+                        'evening_activity' => 'Local Handicraft Shopping & Tawang Leisure Stroll',
+                        'meals' => 'Breakfast & Dinner',
+                        'hotel' => 'Hotel in Tawang',
+                        'transportation' => 'Private Cab / SUV (or Local Taxi for Bum La)'
+                    ],
+                    [
+                        'day_number' => 9,
+                        'title' => 'Tawang– Bomdila (190 KM | 7-8 HRS)',
+                        'description' => 'After enjoying your breakfast, proceed to Bomdila and complete the check-in process at your hotel upon arrival. Take the opportunity to visit the prominent attractions in Bomdila, such as the Bomdila Monastery. In the evening, you can explore the local market and immerse yourself in the vibrant atmosphere. Conclude the day with a comfortable overnight stay in Bomdila.',
+                        'morning_activity' => 'Breakfast & Drive from Tawang to Bomdila',
+                        'afternoon_activity' => 'Bomdila Hotel Check-in & Bomdila Monastery Visit',
+                        'evening_activity' => 'Bomdila Local Market & Handicraft Shopping',
+                        'meals' => 'Breakfast & Dinner',
+                        'hotel' => 'Hotel in Bomdila',
+                        'transportation' => 'Private Cab / SUV'
+                    ],
+                    [
+                        'day_number' => 10,
+                        'title' => 'Bomdila– Guwahati (335 KM | 6 – 7 HRS)',
+                        'description' => 'After Breakfast transfer to Guwahati. Check in to your hotel. Evening you may take a River Cruise (Direct Payment) on the mighty River Brahmaputra. You may also visit the local market. Assam is famous for Assam Silk particularly Golden Muga Silk, Assam Tea, Bamboo and Cane Products. Overnight stay in Guwahati.',
+                        'morning_activity' => 'Drive from Bomdila down to Guwahati',
+                        'afternoon_activity' => 'Hotel Check-in & Relaxation',
+                        'evening_activity' => 'Brahmaputra River Cruise & Silk Market Shopping',
+                        'meals' => 'Breakfast & Dinner',
+                        'hotel' => 'Hotel in Guwahati',
+                        'transportation' => 'Private Cab / SUV'
+                    ],
+                    [
+                        'day_number' => 11,
+                        'title' => 'Guwahati Kamakhya Temple & Departure',
+                        'description' => 'After breakfast check out from the hotel. Visit the Kamakhya Temple With everlasting memories transfer to Guwahati airport/railway station for onward journey.',
+                        'morning_activity' => 'Breakfast & Kamakhya Temple Pilgrimage Visit',
+                        'afternoon_activity' => 'Check-out & Transfer to Airport / Railway Station',
+                        'evening_activity' => 'Departure Onward Journey',
+                        'meals' => 'Breakfast',
+                        'hotel' => 'N/A (Departure)',
+                        'transportation' => 'Private Cab / SUV'
+                    ]
+                ]
             ]
         ];
 
