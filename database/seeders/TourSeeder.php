@@ -378,6 +378,92 @@ class TourSeeder extends Seeder
                         'transportation' => 'Private Cab / SUV'
                     ]
                 ]
+            ],
+            [
+                'title' => '5 Nights 6 Days - Shillong (3N) Cherrapunji (2N)',
+                'cover_image' => 'https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=1200&q=80',
+                'short_description' => '05 N / 06 D Shillong 3N & Cherrapunji 2N tour covering Umiam Lake, Laitlum Canyons, Krang Suri Waterfalls, Mawsynram, Mawphlang Sacred Forest, Dawki, Mawlynnong, Nohkalikai Falls & Kamakhya Temple.',
+                'full_description' => 'Immerse yourself in the breathtaking landscapes of Meghalaya with our 5 Nights / 6 Days Shillong and Cherrapunji package. Experience Laitlum Canyons, natural pools at Krang Suri Falls, Mawsynram (highest rainfall in the world), Mawphlang Sacred Forest, Asia’s cleanest village Mawlynnong, Dawki Umngot River, Cherrapunji Nohkalikai Falls, optional Double Decker Root Bridge trek, and Kamakhya Temple in Guwahati.',
+                'destination_id' => $meghalaya?->id,
+                'category_id' => $catAdventure?->id,
+                'tour_type_id' => $typeDomestic?->id,
+                'duration_days' => 6,
+                'duration_nights' => 5,
+                'starting_price' => 24999.00,
+                'discounted_price' => 21999.00,
+                'max_travelers' => 12,
+                'inclusions_text' => "3 Nights Hotel Stay in Shillong & 2 Nights Hotel Stay in Cherrapunji\nDaily Breakfast & Dinner\nPrivate SUV / Sedan for Transfers & Sightseeing\nDawki Umngot River Boating Pass\nAll Entry Fees, Tolls & Parking Charges",
+                'exclusions_text' => "Flight / Train tickets\nGuide charges for Double Decker Root Bridge Trek\nPersonal expenses & tips\nGST 5%",
+                'is_featured' => true,
+                'is_active' => true,
+                'itineraries' => [
+                    [
+                        'day_number' => 1,
+                        'title' => 'Guwahati - Shillong (98 KMS / 3 HRS)',
+                        'description' => 'Arrival at Guwahati Airport/Station and drive to Shillong. En route witness the Umiam Lake or Barapani - is the biggest artificial lake in Meghalaya in the midst of sylvan hills adorned by Khasi pines & peerless beauty. Check-in Hotel and after refreshment if time permits visit Cathedral of Mary and Ward’s Lake. Evening free at leisure to explore the region on my own. You may take a walk to the famous Police Bazaar for shopping. Overnight in Shillong.',
+                        'morning_activity' => 'Guwahati Arrival & Drive to Shillong',
+                        'afternoon_activity' => 'Umiam Lake (Barapani) & Ward’s Lake',
+                        'evening_activity' => 'Police Bazar Shopping & Leisure Stroll',
+                        'meals' => 'Dinner',
+                        'hotel' => 'Hotel / Resort in Shillong',
+                        'transportation' => 'Private Cab / SUV'
+                    ],
+                    [
+                        'day_number' => 2,
+                        'title' => 'Shillong – Laitlum Canyons - Krang Suri Falls – Shillong (90 KM | 2 Hrs Per Way)',
+                        'description' => 'Following breakfast, we will make our way to Laitlum Canyons, where you can experience awe-inspiring views. Later, we will visit Krang Suri Falls, which is regarded as one of the finest waterfalls in Meghalaya. Here, you will have the opportunity to swim in a natural pool and witness the waterfall from behind, as the water cascades in front of you. After enjoying lunch, we will return to Shillong. During the remainder of the day, we will visit various attractions including the Don Bosco Centre for Indigenous Cultures, Ward\'s Lake (where boating can be enjoyed), the Cathedral Catholic Church, and Lady Hydari Park. We will spend the night in Shillong.',
+                        'morning_activity' => 'Excursion to Laitlum Canyons',
+                        'afternoon_activity' => 'Krang Suri Falls Natural Pool Swimming',
+                        'evening_activity' => 'Don Bosco Centre & Lady Hydari Park',
+                        'meals' => 'Breakfast & Dinner',
+                        'hotel' => 'Hotel / Resort in Shillong',
+                        'transportation' => 'Private Cab / SUV'
+                    ],
+                    [
+                        'day_number' => 3,
+                        'title' => 'Shillong – Mawsynram – Mawphlang Sacred Forest – Shillong (60 KM | 1.5 Hrs Per Way)',
+                        'description' => 'After having breakfast, we will head towards Mawsynram, which has recently been identified as the place receiving the highest rainfall in the world according to geological reports. The region is renowned for its numerous caves. Following that, we will visit Mawphlang Sacred Grove, one of the largest sacred groves in Meghalaya. It is a well-preserved forest protected by the local community and governed by the local deities, prohibiting anything from being taken out of the forest. We will also visit a Khasi model village. In the evening, we will return to Shillong and visit Elephanta Falls. We will spend the night in Shillong.',
+                        'morning_activity' => 'Drive to Mawsynram (Wettest Place on Earth)',
+                        'afternoon_activity' => 'Mawphlang Sacred Grove & Khasi Model Village',
+                        'evening_activity' => 'Elephanta Falls Visit & Return to Shillong',
+                        'meals' => 'Breakfast & Dinner',
+                        'hotel' => 'Hotel / Resort in Shillong',
+                        'transportation' => 'Private Cab / SUV'
+                    ],
+                    [
+                        'day_number' => 4,
+                        'title' => 'Shillong – Dawki – Mawlynnong Village – Cherrapunji (90 KM | 2 Hrs Per Way)',
+                        'description' => 'After enjoying breakfast, we will visit Mawlynnong Village, which is recognized as the cleanest village in India. This charming and vibrant village is renowned for its exceptional cleanliness. It is located approximately 90 kilometers from Shillong and offers various fascinating attractions, including the Living Root Bridge and the peculiar natural phenomenon of a boulder balancing on another rock. Following that, we will proceed to Dawki, a place situated along the Indo-Bangladesh border. Here, you will have the opportunity to indulge in boating in the crystal clear waters of the Umgnot River. In the evening, we will continue our journey to Cherrapunji. We will spend the night in Cherrapunji.',
+                        'morning_activity' => 'Mawlynnong Cleanest Village & Living Root Bridge',
+                        'afternoon_activity' => 'Dawki Umngot River Boating',
+                        'evening_activity' => 'Drive to Cherrapunji & Hotel Check-in',
+                        'meals' => 'Breakfast & Dinner',
+                        'hotel' => 'Resort in Cherrapunji',
+                        'transportation' => 'Private Cab / SUV'
+                    ],
+                    [
+                        'day_number' => 5,
+                        'title' => 'Cherrapunji Local Sightseeing & Optional Double Decker Root Bridge Trek',
+                        'description' => 'Rise early today to fully immerse yourself in the captivating mornings of Cherrapunji. Explore various attractions including Eco Park, Nohkalikai Falls, Nohsngithiang Falls (Seven Sisters Falls), Mawsmai Cave, and Thangkharang Park. After a day filled with exploration, spend the night in Cherrapunji. Optional – You have the option to embark on a full day trek to the Double Decker Living Root Bridge at Nongriat Village. The trek involves descending approximately 3,200 steps each way to reach the Double Decker Living Root Bridge. For those seeking further adventure, you can continue trekking to the Rainbow Falls, which takes about 60 to 90 minutes from the Double Decker Living Root Bridge. Overnight stay in Cherrapunji.',
+                        'morning_activity' => 'Nohkalikai Falls & Seven Sisters Waterfalls',
+                        'afternoon_activity' => 'Mawsmai Cave & Eco Park (or Nongriat Double Decker Trek)',
+                        'evening_activity' => 'Thangkharang Park Sunset & Cherrapunji Stay',
+                        'meals' => 'Breakfast & Dinner',
+                        'hotel' => 'Resort in Cherrapunji',
+                        'transportation' => 'Private Cab / SUV'
+                    ],
+                    [
+                        'day_number' => 6,
+                        'title' => 'Cherrapunji to Guwahati (160 KM | 4.5 HRS)',
+                        'description' => 'Following breakfast, we will make our way to Guwahati. Enroute, we will visit the renowned Kamakhya Temple, known for its religious significance. Cherishing the unforgettable memories of our journey, we will then transfer you to the airport or railway station for your onward travel arrangements.',
+                        'morning_activity' => 'Breakfast & Drive from Cherrapunji to Guwahati',
+                        'afternoon_activity' => 'Kamakhya Temple Pilgrimage Visit',
+                        'evening_activity' => 'Transfer to Guwahati Airport / Railway Station',
+                        'meals' => 'Breakfast',
+                        'hotel' => 'N/A (Departure)',
+                        'transportation' => 'Private Cab / SUV'
+                    ]
+                ]
             ]
         ];
 
