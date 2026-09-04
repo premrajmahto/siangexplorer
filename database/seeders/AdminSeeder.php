@@ -13,7 +13,7 @@ class AdminSeeder extends Seeder
         $superAdminRole = Role::where('slug', 'super-admin')->first();
 
         Admin::firstOrCreate(
-            ['email' => env('ADMIN_EMAIL', 'admin@siangexplorer.com')],
+            ['email' => env('ADMIN_EMAIL', 'booking.siangholidays@gmail.com')],
             [
                 'name' => 'System Administrator',
                 'password' => env('ADMIN_PASSWORD', 'password123'),
