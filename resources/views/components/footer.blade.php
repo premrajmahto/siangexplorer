@@ -96,6 +96,18 @@
             </div>
         </div>
 
+        <!-- Destination Expert Banner -->
+        <div class="p-6 bg-slate-900/90 rounded-2xl border border-slate-800 space-y-2 text-center">
+            <p class="text-brand-400 font-extrabold text-xs uppercase tracking-widest flex items-center justify-center space-x-2">
+                <i class="fa-solid fa-star text-amber-400 text-xs"></i>
+                <span>Regional Tour Operations</span>
+                <i class="fa-solid fa-star text-amber-400 text-xs"></i>
+            </p>
+            <h5 class="text-white font-black text-sm uppercase tracking-wider font-serif">
+                Destination Expert For: ASSAM | ARUNACHAL | MEGHALAYA | MANIPUR | MIZORAM | NAGALAND | TRIPURA | BHUTAN | SIKKIM | DARJEELING
+            </h5>
+        </div>
+
         <!-- Bottom Copyright -->
         <div class="pt-8 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between text-slate-500 gap-4">
             <p>© {{ date('Y') }} {{ config('app.name', 'SiangExplorer') }}. All rights reserved. Built with Laravel & Tailwind CSS.</p>

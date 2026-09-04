@@ -131,6 +131,21 @@
                 </a>
             </div>
         </div>
+
+        <!-- Destination Expert Banner -->
+        <div class="bg-gradient-to-r from-slate-950 via-slate-900 to-teal-950 text-white p-8 rounded-3xl border border-slate-800 shadow-2xl space-y-4 text-center">
+            <span class="px-3.5 py-1.5 bg-teal-500/20 text-teal-300 text-xs font-extrabold uppercase tracking-widest rounded-full border border-teal-500/30 inline-block">
+                <i class="fa-solid fa-award text-amber-400 mr-1.5"></i> Regional Specialist Network
+            </span>
+            <h3 class="text-2xl sm:text-3xl font-extrabold font-serif text-white">Destination Expert For:</h3>
+            <div class="flex flex-wrap items-center justify-center gap-2 text-xs font-black pt-1">
+                @foreach(['ASSAM', 'ARUNACHAL', 'MEGHALAYA', 'MANIPUR', 'MIZORAM', 'NAGALAND', 'TRIPURA', 'BHUTAN', 'SIKKIM', 'DARJEELING'] as $region)
+                    <span class="px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-xl border border-white/15 text-teal-200 tracking-wider">
+                        {{ $region }}
+                    </span>
+                @endforeach
+            </div>
+        </div>
     </div>
 </section>
 

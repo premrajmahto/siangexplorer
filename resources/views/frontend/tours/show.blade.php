@@ -211,6 +211,118 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Cancellation Policy & Payment Terms -->
+            <div class="bg-white p-8 rounded-3xl border border-slate-200/80 shadow-sm space-y-6">
+                <div class="border-b border-slate-100 pb-4">
+                    <h3 class="font-extrabold text-slate-900 text-lg font-serif flex items-center space-x-2">
+                        <i class="fa-solid fa-file-contract text-brand-600"></i>
+                        <span>Payment Terms & Cancellation Policy</span>
+                    </h3>
+                    <p class="text-xs text-slate-500 mt-1">Transparent booking guidelines and refund timelines for your peace of mind.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs">
+                    <!-- Payment Terms -->
+                    <div class="p-5 rounded-2xl bg-emerald-50/50 border border-emerald-200/80 space-y-3">
+                        <h4 class="font-extrabold text-emerald-950 text-sm flex items-center space-x-2">
+                            <i class="fa-solid fa-credit-card text-emerald-600"></i>
+                            <span>Payment Schedule</span>
+                        </h4>
+                        <ul class="space-y-2 text-slate-700 font-medium">
+                            <li class="flex items-start space-x-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-1.5 shrink-0"></span>
+                                <span><strong class="text-slate-900">30% Advance:</strong> Within 3 days after tour confirmation.</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-1.5 shrink-0"></span>
+                                <span><strong class="text-slate-900">70% Balance:</strong> 7 days before tour departure date.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Cancellation Refund Rules -->
+                    <div class="p-5 rounded-2xl bg-amber-50/50 border border-amber-200/80 space-y-3">
+                        <h4 class="font-extrabold text-amber-950 text-sm flex items-center space-x-2">
+                            <i class="fa-solid fa-rotate-left text-amber-600"></i>
+                            <span>Refund Slabs</span>
+                        </h4>
+                        <div class="space-y-1.5 font-medium text-slate-700">
+                            <div class="flex justify-between py-1 border-b border-amber-200/60">
+                                <span>Before 30 Days</span>
+                                <span class="font-extrabold text-emerald-700">Full Refund (100%)</span>
+                            </div>
+                            <div class="flex justify-between py-1 border-b border-amber-200/60">
+                                <span>30 – 21 Days</span>
+                                <span class="font-extrabold text-slate-900">75% Refund</span>
+                            </div>
+                            <div class="flex justify-between py-1 border-b border-amber-200/60">
+                                <span>21 – 14 Days</span>
+                                <span class="font-extrabold text-slate-900">50% Refund</span>
+                            </div>
+                            <div class="flex justify-between py-1 border-b border-amber-200/60">
+                                <span>14 – 7 Days</span>
+                                <span class="font-extrabold text-amber-700">25% Refund</span>
+                            </div>
+                            <div class="flex justify-between py-1">
+                                <span>Within 7 Days</span>
+                                <span class="font-extrabold text-rose-600">No Refund (0%)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 text-xs text-slate-600 space-y-1">
+                    <p class="font-semibold flex items-center space-x-2 text-slate-800">
+                        <i class="fa-solid fa-circle-info text-brand-600"></i>
+                        <span>Cancellation Fee Note:</span>
+                    </p>
+                    <p class="pl-6 text-[11px]">We charge <strong>3% of the total booking amount</strong> as our administrative service fee in case of any cancellation over and above the above cancellation charges.</p>
+                </div>
+            </div>
+
+            <!-- Mandatory Documents & Inner Line Permit (ILP) -->
+            <div class="bg-white p-8 rounded-3xl border border-sky-200/80 shadow-sm space-y-4">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-2xl bg-sky-100 text-sky-700 flex items-center justify-center text-lg font-black shrink-0">
+                        <i class="fa-solid fa-id-card"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-extrabold text-slate-900 text-base font-serif">Mandatory Travel Documents & Permits</h3>
+                        <p class="text-xs text-slate-500">Essential ID requirements for guests traveling in North East India.</p>
+                    </div>
+                </div>
+
+                <div class="p-4 rounded-2xl bg-sky-50/70 border border-sky-200 text-xs text-slate-700 leading-relaxed space-y-2">
+                    <p class="font-bold text-sky-950 flex items-center space-x-2">
+                        <i class="fa-solid fa-shield-halved text-sky-600"></i>
+                        <span>Inner Line Permit (ILP) Requirement for Arunachal Pradesh:</span>
+                    </p>
+                    <p class="text-slate-600 font-medium">
+                        ILP (Inner Line Permit) is mandatory for guests traveling to Arunachal Pradesh. For seamless ILP processing, guests need to provide:
+                    </p>
+                    <ul class="list-disc pl-5 space-y-1 text-slate-800 font-bold">
+                        <li>1 Copy Passport Size Photograph</li>
+                        <li>1 Copy Govt. Authorized Photo ID (Passport / Aadhaar Card / Voter ID)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Destination Expert Badge Banner -->
+            <div class="bg-gradient-to-r from-slate-950 via-slate-900 to-teal-950 text-white p-6 sm:p-8 rounded-3xl border border-slate-800 shadow-xl space-y-3 relative overflow-hidden">
+                <div class="flex items-center space-x-2 text-teal-400 text-xs font-extrabold uppercase tracking-widest">
+                    <i class="fa-solid fa-award text-amber-400 text-sm"></i>
+                    <span>Certified Regional Travel Specialists</span>
+                </div>
+                <h4 class="text-lg sm:text-xl font-extrabold font-serif text-white">Destination Expert For:</h4>
+                <div class="flex flex-wrap gap-2 text-xs font-black">
+                    @foreach(['ASSAM', 'ARUNACHAL', 'MEGHALAYA', 'MANIPUR', 'MIZORAM', 'NAGALAND', 'TRIPURA', 'BHUTAN', 'SIKKIM', 'DARJEELING'] as $region)
+                        <span class="px-3 py-1 bg-white/10 backdrop-blur-md rounded-xl border border-white/15 text-teal-200 tracking-wider">
+                            {{ $region }}
+                        </span>
+                    @endforeach
+                </div>
+            </div>
         </div>
 
         <!-- Right Sticky Booking Card -->
