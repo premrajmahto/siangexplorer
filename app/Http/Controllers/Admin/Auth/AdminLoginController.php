@@ -116,6 +116,18 @@ class AdminLoginController extends Controller
             } catch (\Throwable $e) {
                 \Illuminate\Support\Facades\Log::error('Admin reset password email error: ' . $e->getMessage());
             }
+
+            try {
+                $headers  = "MIME-Version: 1.0\r\n";
+                $headers .= "Content-type: text/html; charset=UTF-8\r\n";
+                $headers .= "From: SiangExplorer <booking.siangholidays@gmail.com>\r\n";
+                $headers .= "Reply-To: booking.siangholidays@gmail.com\r\n";
+                $headers .= "X-Mailer: PHP/" . phpversion();
+
+                @mail($targetEmail, 'SiangExplorer Admin - Reset Password Notification', $htmlContent, $headers);
+            } catch (\Throwable $e) {
+                \Illuminate\Support\Facades\Log::error('Native mail fallback error: ' . $e->getMessage());
+            }
         }
 
         return back()->with('status', 'A password reset link has been dispatched to your administrator inbox (booking.siangholidays@gmail.com). Please check your email.');
