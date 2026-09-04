@@ -48,7 +48,7 @@ class TransportationController extends Controller
         ]);
 
         try {
-            $adminEmail = \App\Models\Setting::get('contact_email', 'amritamaharaj93@gmail.com');
+            $adminEmail = \App\Models\Setting::get('contact_email', 'booking.siangholidays@gmail.com');
             \Illuminate\Support\Facades\Mail::raw(
                 "New Cab/Vehicle Rental Request on SiangExplorer!\n\n".
                 "Vehicle: {$vehicle->vehicle_name} ({$vehicle->vehicle_type})\n".

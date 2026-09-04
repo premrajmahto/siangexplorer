@@ -18,7 +18,7 @@ class SettingSeeder extends Seeder
 
             // Contact
             'contact_phone' => '+91 91272 11962',
-            'contact_email' => 'amritamaharaj93@gmail.com',
+            'contact_email' => 'booking.siangholidays@gmail.com',
             'contact_address' => 'Mazar Path, Guwahati, Assam, 781037',
             'whatsapp_number' => '+919127211962',
 

@@ -122,7 +122,7 @@ class BookingService
 
             // Dispatch Email Notification to Admin & Customer
             try {
-                $adminEmail = \App\Models\Setting::get('contact_email', 'amritamaharaj93@gmail.com');
+                $adminEmail = \App\Models\Setting::get('contact_email', 'booking.siangholidays@gmail.com');
                 \Illuminate\Support\Facades\Mail::to($adminEmail)->send(new \App\Mail\BookingSubmittedMail($booking));
                 if (!empty($booking->customer_email) && $booking->customer_email !== $adminEmail) {
                     \Illuminate\Support\Facades\Mail::to($booking->customer_email)->send(new \App\Mail\BookingSubmittedMail($booking));

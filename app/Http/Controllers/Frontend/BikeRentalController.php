@@ -48,7 +48,7 @@ class BikeRentalController extends Controller
         ]);
 
         try {
-            $adminEmail = \App\Models\Setting::get('contact_email', 'amritamaharaj93@gmail.com');
+            $adminEmail = \App\Models\Setting::get('contact_email', 'booking.siangholidays@gmail.com');
             \Illuminate\Support\Facades\Mail::raw(
                 "New Bike Rental Request on SiangExplorer!\n\n".
                 "Bike: {$bike->model_name} ({$bike->bike_type})\n".

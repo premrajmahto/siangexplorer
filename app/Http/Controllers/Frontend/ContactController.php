@@ -27,7 +27,7 @@ class ContactController extends Controller
         $contact = ContactMessage::create($validated);
 
         try {
-            $adminEmail = \App\Models\Setting::get('contact_email', 'amritamaharaj93@gmail.com');
+            $adminEmail = \App\Models\Setting::get('contact_email', 'booking.siangholidays@gmail.com');
             \Illuminate\Support\Facades\Mail::raw(
                 "New Contact Message Received on SiangExplorer!\n\n" .
                 "Name: {$contact->name}\n" .
@@ -57,7 +57,7 @@ class ContactController extends Controller
         $sub = NewsletterSubscriber::firstOrCreate(['email' => $validated['email']]);
 
         try {
-            $adminEmail = \App\Models\Setting::get('contact_email', 'dizitaleraa@gmail.com');
+            $adminEmail = \App\Models\Setting::get('contact_email', 'booking.siangholidays@gmail.com');
             \Illuminate\Support\Facades\Mail::raw(
                 "New Newsletter Subscription on SiangExplorer!\n\nSubscriber Email: {$sub->email}",
                 function ($mail) use ($adminEmail, $sub) {
