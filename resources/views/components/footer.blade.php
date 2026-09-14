@@ -110,7 +110,7 @@
 
         <!-- Bottom Copyright -->
         <div class="pt-8 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between text-slate-500 gap-4">
-            <p>© {{ date('Y') }} {{ config('app.name', 'SiangExplorer') }}. All rights reserved. Built with Laravel & Tailwind CSS. Powered By Aventiq Web Solution</p>
+            <p>© {{ date('Y') }} {{ config('app.name', 'SiangExplorer') }}. All rights reserved. Powered By Aventiq Web Solution</p>
             <div class="flex items-center space-x-4">
                 <a href="{{ \App\Models\Setting::get('social_facebook', '#') }}" class="hover:text-white transition-colors" title="Facebook"><i class="fa-brands fa-facebook text-sm"></i></a>
                 <a href="{{ \App\Models\Setting::get('social_instagram', '#') }}" class="hover:text-white transition-colors" title="Instagram"><i class="fa-brands fa-instagram text-sm"></i></a>
